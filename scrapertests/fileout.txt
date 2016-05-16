@@ -1,0 +1,2172 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]> <html dir="ltr" lang="en-US" class="iem7"> <![endif]-->
+<!--[if lt IE 7 ]> <html dir="ltr" lang="en-US" class="ie6 oldIE"> <![endif]-->
+<!--[if IE 7 ]>    <html dir="ltr" lang="en-US" class="ie7 oldIE"> <![endif]-->
+<!--[if IE 8 ]>    <html dir="ltr" lang="en-US" class="ie8 oldIE"> <![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!-->
+<html dir="ltr" lang="en-US">
+ <!--<![endif]-->
+ <head>
+  <link href="../App_Themes/CU_eStudent_m/10-bootstrap.css" rel="stylesheet" type="text/css"/>
+  <link href="../App_Themes/CU_eStudent_m/30-eStudent.css" rel="stylesheet" type="text/css"/>
+  <link href="../App_Themes/CU_eStudent_m/40-eStudentWebControls.css" rel="stylesheet" type="text/css"/>
+  <link href="../App_Themes/CU_eStudent_m/45-eApplicationWebControls.css" rel="stylesheet" type="text/css"/>
+  <link href="../App_Themes/CU_eStudent_m/50-StudyPlanStreamline.css" rel="stylesheet" type="text/css"/>
+  <link href="../App_Themes/CU_eStudent_m/60-TimetableStreamline.css" rel="stylesheet" type="text/css"/>
+  <link href="../App_Themes/CU_eStudent_m/70-jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css"/>
+  <link href="../App_Themes/CU_eStudent_m/80-bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
+  <link href="../App_Themes/CU_eStudent_m/99-custom-styles.css" rel="stylesheet" type="text/css"/>
+  <meta charset="utf-8"/>
+  <title>
+   Curtin University - My Classes - eStudent
+  </title>
+  <link href="../favicon.ico" rel="icon" type="image/x-icon"/>
+  <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+ </head>
+ <body class="cssT1SmeStudentWorkplace">
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+      <script type="text/javascript" src="js/html5shiv.js"></script>
+    <![endif]-->
+  <script src="js/respond.js" type="text/javascript">
+  </script>
+  <form action="StudentTtable10.aspx?r=%23CU.ESTU.STUDENT&amp;f=%23CU.EST.TIMETBL.WEB" class="form-horizontal" id="aspnetForm" method="post" name="aspnetForm">
+   <input id="__VIEWSTATE" name="__VIEWSTATE" type="hidden" value="/wEPDwUKLTEyMTcyODQyMg9kFgJmD2QWAgIBD2QWDgIDDxYCHgRUZXh0BQZTYW11ZWxkAgUPZBYEAgEPFgIeB1Zpc2libGVoZAIDDxYCHwFoZAIJDxAPFgIeC18hRGF0YUJvdW5kZ2QQFQkKTXkgRGV0YWlscw9NeSBBcHBsaWNhdGlvbnMJTXkgT2ZmZXJzCE15IGVDQUZzDE15IEVucm9sbWVudApNeSBDbGFzc2VzC015IEZpbmFuY2VzCk15IFJlc3VsdHMMTXkgRG9jdW1lbnRzFQlCfi9TTS9QZXJzRHRsczEwLmFzcHg/cj0lMjNDVS5FU1RVLlNUVURFTlQmZj0lMjNDVS5FU1QuUEVSU0RUTFMuV0VCQX4vU00vQXBwblN1bTAxMC5hc3B4P3I9JTIzQ1UuRVNUVS5TVFVERU5UJmY9JTIzQ1UuRVNULkFQUE5TVU0uV0VCQ34vU00vT2ZmZXJEdGxzMTAuYXNweD9yPSUyM0NVLkVTVFUuU1RVREVOVCZmPSUyM0NVLkVTVC5PRkZSRFRMUy5XRUJCfi9TTS9lQ0FGRHRsczEwLmFzcHg/cj0lMjNDVS5FU1RVLlNUVURFTlQmZj0lMjNDVS5FU1QuRUNBRkRUTFMuV0VCQH4vU00vRW5yRHRsczEwLmFzcHg/cj0lMjNDVS5FU1RVLlNUVURFTlQmZj0lMjNDVS5FU1QuRU5SRFRMUy5XRUJGfi9TTS9TdHVkZW50VHRhYmxlMTAuYXNweD9yPSUyM0NVLkVTVFUuU1RVREVOVCZmPSUyM0NVLkVTVC5USU1FVEJMLldFQkJ+L1NNL0ZpblR4bkR0bHMxMC5hc3B4P3I9JTIzQ1UuRVNUVS5TVFVERU5UJmY9JTIzQ1UuRVNULkZJTlRYTi5XRUJFfi9TTS9SZXN1bHRzRHRsczEwLmFzcHg/cj0lMjNDVS5FU1RVLlNUVURFTlQmZj0lMjNDVS5FU1QuUlNMVERUTFMuV0VCQH4vU00vU3R1RG9jczEwLmFzcHg/cj0lMjNDVS5FU1RVLlNUVURFTlQmZj0lMjNDVS5FU1QuU1RVRE9DUy5XRUIUKwMJZ2dnZ2dnZ2dnFgBkAgsPD2QPEBYBZhYBFgIeDlBhcmFtZXRlclZhbHVlBRAjQ1UuRVNUVS5TVFVERU5UDxYBAgcWAQV4VDEuVGIuV2ViLkNvbnRyb2xzLldvcmtwbGFjZUNvbnRleHRQYXJhbWV0ZXIsIFQxLlRiLldlYi5Db250cm9scywgVmVyc2lvbj02LjEyLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsZGQCDQ9kFgQCAQ8QDxYCHwJnZBAVAShTdHVkZW50IFRpbWV0YWJsZSBhbmQgQ2xhc3MgUmVnaXN0cmF0aW9uFQFGfi9TTS9TdHVkZW50VHRhYmxlMTAuYXNweD9yPSUyM0NVLkVTVFUuU1RVREVOVCZmPSUyM0NVLkVTVC5USU1FVEJMLldFQhQrAwFnFgBkAgMPD2QPEBYBZhYBFgIfAwUTI0NVLkVTVC5USU1FVEJMLldFQg8WAQIHFgEFeFQxLlRiLldlYi5Db250cm9scy5Xb3JrcGxhY2VDb250ZXh0UGFyYW1ldGVyLCBUMS5UYi5XZWIuQ29udHJvbHMsIFZlcnNpb249Ni4xMi4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbGRkAg8PZBYEAgMPZBYIZg8PFgIfAWhkFgICAQ8PFgIeDk1lc3NhZ2VQZXJzaXN0MvsCAAEAAAD/////AQAAAAAAAAAMAgAAAEpUMS5TMS5XZWIuQ29udHJvbHMsIFZlcnNpb249NC4xMi4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAQBAAAAjwFTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDFbW1QxLlMxLldlYi5Db250cm9scy5NZXNzYWdlSXRlbSwgVDEuUzEuV2ViLkNvbnRyb2xzLCBWZXJzaW9uPTQuMTIuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPW51bGxdXQMAAAAGX2l0ZW1zBV9zaXplCF92ZXJzaW9uBAAAIFQxLlMxLldlYi5Db250cm9scy5NZXNzYWdlSXRlbVtdAgAAAAgICQMAAAAAAAAAAAAAAAcDAAAAAAEAAAAAAAAABB5UMS5TMS5XZWIuQ29udHJvbHMuTWVzc2FnZUl0ZW0CAAAAC2RkAgEPDxYCHwFoZBYCAgEPDxYCHwQy+wIAAQAAAP////8BAAAAAAAAAAwCAAAASlQxLlMxLldlYi5Db250cm9scywgVmVyc2lvbj00LjEyLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsBAEAAACPAVN5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLkxpc3RgMVtbVDEuUzEuV2ViLkNvbnRyb2xzLk1lc3NhZ2VJdGVtLCBUMS5TMS5XZWIuQ29udHJvbHMsIFZlcnNpb249NC4xMi4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbF1dAwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24EAAAgVDEuUzEuV2ViLkNvbnRyb2xzLk1lc3NhZ2VJdGVtW10CAAAACAgJAwAAAAAAAAAAAAAABwMAAAAAAQAAAAAAAAAEHlQxLlMxLldlYi5Db250cm9scy5NZXNzYWdlSXRlbQIAAAALZGQCAg8PFgIfAWhkFgICAQ8PFgIfBDL7AgABAAAA/////wEAAAAAAAAADAIAAABKVDEuUzEuV2ViLkNvbnRyb2xzLCBWZXJzaW9uPTQuMTIuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPW51bGwEAQAAAI8BU3lzdGVtLkNvbGxlY3Rpb25zLkdlbmVyaWMuTGlzdGAxW1tUMS5TMS5XZWIuQ29udHJvbHMuTWVzc2FnZUl0ZW0sIFQxLlMxLldlYi5Db250cm9scywgVmVyc2lvbj00LjEyLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsXV0DAAAABl9pdGVtcwVfc2l6ZQhfdmVyc2lvbgQAACBUMS5TMS5XZWIuQ29udHJvbHMuTWVzc2FnZUl0ZW1bXQIAAAAICAkDAAAAAAAAAAAAAAAHAwAAAAABAAAAAAAAAAQeVDEuUzEuV2ViLkNvbnRyb2xzLk1lc3NhZ2VJdGVtAgAAAAtkZAIDDw8WAh8BaGQWAgIBDw8WAh8EMvsCAAEAAAD/////AQAAAAAAAAAMAgAAAEpUMS5TMS5XZWIuQ29udHJvbHMsIFZlcnNpb249NC4xMi4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAQBAAAAjwFTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDFbW1QxLlMxLldlYi5Db250cm9scy5NZXNzYWdlSXRlbSwgVDEuUzEuV2ViLkNvbnRyb2xzLCBWZXJzaW9uPTQuMTIuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPW51bGxdXQMAAAAGX2l0ZW1zBV9zaXplCF92ZXJzaW9uBAAAIFQxLlMxLldlYi5Db250cm9scy5NZXNzYWdlSXRlbVtdAgAAAAgICQMAAAAAAAAAAAAAAAcDAAAAAAEAAAAAAAAABB5UMS5TMS5XZWIuQ29udHJvbHMuTWVzc2FnZUl0ZW0CAAAAC2RkAgcPZBYEAgMPZBYCAgEPZBYCZg9kFgRmDw8WAh8BaGQWBGYPDxYEHgdUb29sVGlwBTxDbGljayB0aGlzIHRvIGdlbmVyYXRlIGFuZCByZWdpc3RlciBpbnRvIGNsYXNoIGZyZWUgY2xhc3Nlcy4fAWhkZAIBDw8WBB8FBUVDbGljayB0aGlzIHRvIGdlbmVyYXRlIGFuZCByZWdpc3RlciBpbnRvIGFsbCBzaW5nbGUgY2xhc3MgYWN0aXZpdGllcy4fAWhkZAIBD2QWBmYPZBYEZg9kFgZmDw8WAh8CZ2QWAgIBDxAPFgYeDURhdGFUZXh0RmllbGQFBVZhbHVlHg5EYXRhVmFsdWVGaWVsZAUDS2V5HwJnZBAVBAlBbGwgWWVhcnMSMjAxNiBBbGwgU2VtZXN0ZXJzDzIwMTYgU2VtZXN0ZXIgMQ8yMDE2IFNlbWVzdGVyIDIVBA8wLS1NYXkgMTYsIDIwMTYSMjAxNi0tTWF5IDE2LCAyMDE2EzIwMTYtMS1NYXkgMTYsIDIwMTYTMjAxNi0yLUF1ZyAwMiwgMjAxNhQrAwRnZ2dnFgECAmQCAQ8PFgIeE0Fzc29jaWF0ZWRDb250cm9sSUQFClR4dFN0YXJ0RHRkZAIDDw8WAh8FBS9SZWZyZXNoZXMgdGhlIHNlbGVjdGlvbiBvZiBlbnJvbGxlZCBjb21wb25lbnRzLmRkAgEPDxYGHghDc3NDbGFzcwUbY3NzVHRhYmxlRmlsdGVyQmFySGxwQnV0dG9uHgRfIVNCAgIfAWhkFgQCAQ8PZBYCHgVzdHlsZQUJZGlzcGxheTo7ZAICDw9kFgIfCwUNZGlzcGxheTpub25lO2QCAQ8PFgIfAWgWAh8LBQ1kaXNwbGF5Om5vbmU7ZAICD2QWAmYPDxYCHwAFP1RoZXJlIGFyZSBubyBjbGFzc2VzIGZyb20gYW55IHVuaXRzIGF2YWlsYWJsZSBmb3IgcmVnaXN0cmF0aW9uLmRkAgUPZBYEAgMPZBYEZg9kFgICAw9kFghmDw8WBB8JBRpjc3NUdGFibGVFeHBhbmRDb2xsYXBzZUFsbB8KAgJkZAIBDw8WBB8JBS1jc3NUdGFibGVFeHBhbmRDb2xsYXBzZUFsbE5vZGUgY3NzRGlzcGxheU5vbmUfCgICZGQCAg8PFgQfCQUaY3NzVHRhYmxlRXhwYW5kQ29sbGFwc2VBbGwfCgICZGQCAw8PFgQfCQUpY3NzVHRhYmxlRXhwYW5kQ29sbGFwc2VBbGwgY3NzRGlzcGxheU5vbmUfCgICZGQCAQ9kFgRmD2QWAmYPZBYGZg8PFgIfAWhkFgJmD2QWBGYPFgIfAAU5UGxlYXNlIHBlcmZvcm0gY2xhc3MgcmVnaXN0cmF0aW9uIGluIHRoZSB0aW1ldGFibGUgYmVsb3cuZAICDxYCHwAFYk9uY2UgeW91IGFyZSBoYXBweSB3aXRoIHlvdXIgc2VsZWN0aW9uLCBwbGVhc2UgZmluYWxpc2UgdGhlIGNoYW5nZXMgYnkgY2xpY2tpbmcgdGhlICdTYXZlJyBidXR0b24uZAIBD2QWAmYPZBYCZg9kFg5mD2QWAmYPZBYCAgEPD2QWAh8LBQ1kaXNwbGF5Om5vbmU7ZAIBD2QWAmYPD2QWAh8LBRliYWNrZ3JvdW5kLWNvbG9yOiMwMENDQ0M7FgJmD2QWAmYPFgIfAAUIQkxBVzIwMDBkAgIPZBYEZg9kFgJmDxYCHwAFEUxhdyBmb3IgRW5naW5lZXJzZAIBD2QWAmYPFgIfAAUHPC9zcGFuPmQCAw9kFgJmD2QWAmYPFgIfAAU3T25lIFdlZWtseSAyLUhvdXJzIExlY3R1cmUsIE9uZSBXZWVrbHkgMS1Ib3VycyBUdXRvcmlhbGQCBA9kFgZmDw8WAh8BaGRkAgEPDxYCHwFoZGQCAg8PFgIfAWdkZAIFD2QWAmYPZBYCZg8WAh8ABRZBbGwgQ2xhc3NlcyBSZWdpc3RlcmVkZAIGD2QWBGYPDxYEHwAFBkNoYW5nZR8BaGRkAgEPDxYEHwAFE1JlZ2lzdHJhdGlvbiBDbG9zZWQfAWdkZAICDw9kFgIfCwUNZGlzcGxheTpub25lOxYCZg9kFgJmDzwrAA0CAA8WBB8CZx4LXyFJdGVtQ291bnQCAmQBEBYCZgIBFgIUKwAFFgIeDlNvcnRFeHByZXNzaW9uBQhUcmVlTm9kZWQWBB8JBRhjc3NUdGFibGVTc3BOYXZUcmVlTm9kZUkfCgICZGQUKwAFFgQfDQUITWFpblRleHQeClNob3dIZWFkZXJnFgQfCQUXY3NzVHRhYmxlU3NwTmF2QWN0dk1haW4fCgICZGRkDxYCAgcCCBYCBWlUMS5TMS5XZWIuQ29udHJvbHMuQm91bmRGaWVsZCwgVDEuUzEuV2ViLkNvbnRyb2xzLCBWZXJzaW9uPTQuMTIuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPW51bGwFbFQxLlMxLldlYi5Db250cm9scy5UZW1wbGF0ZUZpZWxkLCBUMS5TMS5XZWIuQ29udHJvbHMsIFZlcnNpb249NC4xMi4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbBYCZg9kFgYCAQ9kFgRmDw8WBB8JBRhjc3NUdGFibGVTc3BOYXZUcmVlTm9kZVQfCgICZGQCAQ9kFgJmD2QWBGYPZBYEZg9kFgJmDxYCHwAFB0xlY3R1cmVkAgEPZBYEZg8WAh4FY2xhc3MFE2Nzc0hpZGRlbkNsc0dyb3VwSWRkAgEPZBYCAgEPFgIfAAXYAzxkaXYgY2xhc3M9ImNzc1R0YWJsZVNzcE5hdkRpdiI+PHNwYW4gY2xhc3M9ImNzc1R0YWJsZU5hdk1haW5SZWdTdHRzIj5SZWdpc3RlcmVkPC9zcGFuPiA8c3BhbiBjbGFzcz0iY3NzVHRhYmxlTmF2TWFpbldoYXQiPkNsYXNzIDE8L3NwYW4+IDxzcGFuIGNsYXNzPSJjc3NUdGFibGVOYXZNYWluV2hlbiI+PHNwYW4gY2xhc3M9ImNzc1R0YWJsZU5hdk1haW5MYWJlbCI+VGltZTogPC9zcGFuPiA8c3BhbiBjbGFzcz0iY3NzVHRhYmxlTmF2TWFpbkNvbnRlbnQiPiBNb25kYXkgNDowMCBwbS02OjAwIHBtPC9zcGFuPiA8L3NwYW4+IDxzcGFuIGNsYXNzPSJjc3NUdGFibGVOYXZNYWluV2hlcmUiPjxzcGFuIGNsYXNzPSJjc3NUdGFibGVOYXZNYWluTGFiZWwiPkxvY2F0aW9uOiA8L3NwYW4+IDxzcGFuIGNsYXNzPSJjc3NUdGFibGVOYXZNYWluQ29udGVudCI+QmVudGxleSBDYW1wdXMgMjEzIDEwNDwvc3Bhbj48L3NwYW4+DQo8L2Rpdj5kAgEPDxYCHwFoZBYEZg8PFgQfCQUaY3NzVHRhYmxlU3NwTmF2UGFuZWxIZWFkZXIfCgICZBYCAgEPD2QWAh8LBQ1kaXNwbGF5Om5vbmU7ZAIBDw8WBB8JBRhjc3NUdGFibGVTc3BOYXZQYW5lbEJvZHkfCgICFgIfCwUNZGlzcGxheTpub25lO2QCAg9kFgRmDw8WBB8JBRhjc3NUdGFibGVTc3BOYXZUcmVlTm9kZUwfCgICZGQCAQ9kFgJmD2QWBGYPZBYEZg9kFgJmDxYCHwAFCFR1dG9yaWFsZAIBD2QWBGYPFgIfDwUTY3NzSGlkZGVuQ2xzR3JvdXBJZGQCAQ9kFgICAQ8WAh8ABdoDPGRpdiBjbGFzcz0iY3NzVHRhYmxlU3NwTmF2RGl2Ij48c3BhbiBjbGFzcz0iY3NzVHRhYmxlTmF2TWFpblJlZ1N0dHMiPlJlZ2lzdGVyZWQ8L3NwYW4+IDxzcGFuIGNsYXNzPSJjc3NUdGFibGVOYXZNYWluV2hhdCI+Q2xhc3MgNDwvc3Bhbj4gPHNwYW4gY2xhc3M9ImNzc1R0YWJsZU5hdk1haW5XaGVuIj48c3BhbiBjbGFzcz0iY3NzVHRhYmxlTmF2TWFpbkxhYmVsIj5UaW1lOiA8L3NwYW4+IDxzcGFuIGNsYXNzPSJjc3NUdGFibGVOYXZNYWluQ29udGVudCI+IFR1ZXNkYXkgMTI6MDAgcG0tMTowMCBwbTwvc3Bhbj4gPC9zcGFuPiA8c3BhbiBjbGFzcz0iY3NzVHRhYmxlTmF2TWFpbldoZXJlIj48c3BhbiBjbGFzcz0iY3NzVHRhYmxlTmF2TWFpbkxhYmVsIj5Mb2NhdGlvbjogPC9zcGFuPiA8c3BhbiBjbGFzcz0iY3NzVHRhYmxlTmF2TWFpbkNvbnRlbnQiPkJlbnRsZXkgQ2FtcHVzIDIxNiAyMDY8L3NwYW4+PC9zcGFuPg0KPC9kaXY+ZAIBDw8WAh8BaGQWBGYPDxYEHwkFGmNzc1R0YWJsZVNzcE5hdlBhbmVsSGVhZGVyHwoCAmQWAgIBDw9kFgIfCwUNZGlzcGxheTpub25lO2QCAQ8PFgQfCQUYY3NzVHRhYmxlU3NwTmF2UGFuZWxCb2R5HwoCAhYCHwsFDWRpc3BsYXk6bm9uZTtkAgMPDxYCHwFoZGQCAQ9kFgJmD2QWBmYPDxYCHwFoZBYCZg9kFgRmDxYCHwAFOVBsZWFzZSBwZXJmb3JtIGNsYXNzIHJlZ2lzdHJhdGlvbiBpbiB0aGUgdGltZXRhYmxlIGJlbG93LmQCAg8WAh8ABWJPbmNlIHlvdSBhcmUgaGFwcHkgd2l0aCB5b3VyIHNlbGVjdGlvbiwgcGxlYXNlIGZpbmFsaXNlIHRoZSBjaGFuZ2VzIGJ5IGNsaWNraW5nIHRoZSAnU2F2ZScgYnV0dG9uLmQCAQ9kFgJmD2QWAmYPZBYOZg9kFgJmD2QWAgIBDw9kFgIfCwUNZGlzcGxheTpub25lO2QCAQ9kFgJmDw9kFgIfCwUZYmFja2dyb3VuZC1jb2xvcjojQ0NDQ0ZGOxYCZg9kFgJmDxYCHwAFCEVORU4yMDAwZAICD2QWBGYPZBYCZg8WAh8ABSNFbmdpbmVlcmluZyBTdXN0YWluYWJsZSBEZXZlbG9wbWVudGQCAQ9kFgJmDxYCHwAFBzwvc3Bhbj5kAgMPZBYCZg9kFgJmDxYCHwAFN09uZSBXZWVrbHkgMi1Ib3VycyBMZWN0dXJlLCBPbmUgV2Vla2x5IDEtSG91cnMgVHV0b3JpYWxkAgQPZBYGZg8PFgIfAWhkZAIBDw8WAh8BaGRkAgIPDxYCHwFnZGQCBQ9kFgJmD2QWAmYPFgIfAAUWQWxsIENsYXNzZXMgUmVnaXN0ZXJlZGQCBg9kFgRmDw8WBB8ABQZDaGFuZ2UfAWhkZAIBDw8WBB8ABRNSZWdpc3RyYXRpb24gQ2xvc2VkHwFnZGQCAg8PZBYCHwsFDWRpc3BsYXk6bm9uZTsWAmYPZBYCZg88KwANAgAPFgQfAmcfDAICZAEQFgJmAgEWAhQrAAUWAh8NBQhUcmVlTm9kZWQWBB8JBRhjc3NUdGFibGVTc3BOYXZUcmVlTm9kZUkfCgICZGQUKwAFFgQfDQUITWFpblRleHQfDmcWBB8JBRdjc3NUdGFibGVTc3BOYXZBY3R2TWFpbh8KAgJkZGQPFgICBwIIFgIFaVQxLlMxLldlYi5Db250cm9scy5Cb3VuZEZpZWxkLCBUMS5TMS5XZWIuQ29udHJvbHMsIFZlcnNpb249NC4xMi4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAVsVDEuUzEuV2ViLkNvbnRyb2xzLlRlbXBsYXRlRmllbGQsIFQxLlMxLldlYi5Db250cm9scywgVmVyc2lvbj00LjEyLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsFgJmD2QWBgIBD2QWBGYPDxYEHwkFGGNzc1R0YWJsZVNzcE5hdlRyZWVOb2RlVB8KAgJkZAIBD2QWAmYPZBYEZg9kFgRmD2QWAmYPFgIfAAUHTGVjdHVyZWQCAQ9kFgRmDxYCHw8FE2Nzc0hpZGRlbkNsc0dyb3VwSWRkAgEPZBYCAgEPFgIfAAXZAzxkaXYgY2xhc3M9ImNzc1R0YWJsZVNzcE5hdkRpdiI+PHNwYW4gY2xhc3M9ImNzc1R0YWJsZU5hdk1haW5SZWdTdHRzIj5SZWdpc3RlcmVkPC9zcGFuPiA8c3BhbiBjbGFzcz0iY3NzVHRhYmxlTmF2TWFpbldoYXQiPkNsYXNzIDE8L3NwYW4+IDxzcGFuIGNsYXNzPSJjc3NUdGFibGVOYXZNYWluV2hlbiI+PHNwYW4gY2xhc3M9ImNzc1R0YWJsZU5hdk1haW5MYWJlbCI+VGltZTogPC9zcGFuPiA8c3BhbiBjbGFzcz0iY3NzVHRhYmxlTmF2TWFpbkNvbnRlbnQiPiBUdWVzZGF5IDE6MDAgcG0tMzowMCBwbTwvc3Bhbj4gPC9zcGFuPiA8c3BhbiBjbGFzcz0iY3NzVHRhYmxlTmF2TWFpbldoZXJlIj48c3BhbiBjbGFzcz0iY3NzVHRhYmxlTmF2TWFpbkxhYmVsIj5Mb2NhdGlvbjogPC9zcGFuPiA8c3BhbiBjbGFzcz0iY3NzVHRhYmxlTmF2TWFpbkNvbnRlbnQiPkJlbnRsZXkgQ2FtcHVzIDQwNSAyMDE8L3NwYW4+PC9zcGFuPg0KPC9kaXY+ZAIBDw8WAh8BaGQWBGYPDxYEHwkFGmNzc1R0YWJsZVNzcE5hdlBhbmVsSGVhZGVyHwoCAmQWAgIBDw9kFgIfCwUNZGlzcGxheTpub25lO2QCAQ8PFgQfCQUYY3NzVHRhYmxlU3NwTmF2UGFuZWxCb2R5HwoCAhYCHwsFDWRpc3BsYXk6bm9uZTtkAgIPZBYEZg8PFgQfCQUYY3NzVHRhYmxlU3NwTmF2VHJlZU5vZGVMHwoCAmRkAgEPZBYCZg9kFgRmD2QWBGYPZBYCZg8WAh8ABQhUdXRvcmlhbGQCAQ9kFgRmDxYCHw8FE2Nzc0hpZGRlbkNsc0dyb3VwSWRkAgEPZBYCAgEPFgIfAAXbAzxkaXYgY2xhc3M9ImNzc1R0YWJsZVNzcE5hdkRpdiI+PHNwYW4gY2xhc3M9ImNzc1R0YWJsZU5hdk1haW5SZWdTdHRzIj5SZWdpc3RlcmVkPC9zcGFuPiA8c3BhbiBjbGFzcz0iY3NzVHRhYmxlTmF2TWFpbldoYXQiPkNsYXNzIDU8L3NwYW4+IDxzcGFuIGNsYXNzPSJjc3NUdGFibGVOYXZNYWluV2hlbiI+PHNwYW4gY2xhc3M9ImNzc1R0YWJsZU5hdk1haW5MYWJlbCI+VGltZTogPC9zcGFuPiA8c3BhbiBjbGFzcz0iY3NzVHRhYmxlTmF2TWFpbkNvbnRlbnQiPiBUaHVyc2RheSA0OjAwIHBtLTU6MDAgcG08L3NwYW4+IDwvc3Bhbj4gPHNwYW4gY2xhc3M9ImNzc1R0YWJsZU5hdk1haW5XaGVyZSI+PHNwYW4gY2xhc3M9ImNzc1R0YWJsZU5hdk1haW5MYWJlbCI+TG9jYXRpb246IDwvc3Bhbj4gPHNwYW4gY2xhc3M9ImNzc1R0YWJsZU5hdk1haW5Db250ZW50Ij5CZW50bGV5IENhbXB1cyAyMDEgNzA4Qjwvc3Bhbj48L3NwYW4+DQo8L2Rpdj5kAgEPDxYCHwFnZBYEZg8PFgQfCQU8Y3NzVHRhYmxlU3NwTmF2UGFuZWxIZWFkZXIgY3NzVHRhYmxlU3NwTmF2UGFuZWxNb3JlSGlnaGxpZ2h0HwoCAmQWBGYPD2QWAh8LBQ1kaXNwbGF5Om5vbmU7ZAIBDw9kFgIfC2RkAgEPDxYEHwkFOmNzc1R0YWJsZVNzcE5hdlBhbmVsQm9keSBjc3NUdGFibGVTc3BOYXZQYW5lbE1vcmVIaWdobGlnaHQfCgICFgIfC2QWAgICDw8WAh8BZ2QWAgIBDw8WAh8ABV9DbGFzcyByZWdpc3RyYXRpb24gZm9yIDIwMTYgaXMgY3VycmVudGx5IGNsb3NlZCBhbmQgd2lsbCByZW9wZW5lZCBieSBGcmlkYXkgMTF0aCBEZWNlbWJlciAyMDE1LmRkAgMPDxYCHwFoZGQCCw8PFgQeC1RpdGxlU3VmZml4ZR4QRnVsbENsYXNzU2hvd2luZ2hkZAITD2QWBgIBDw8WBB8ABQxUZXJtcyBvZiBVc2UeC05hdmlnYXRlVXJsBTlodHRwOi8vb2FzaXMuY3VydGluLmVkdS5hdS9oZWxwL2VzdHVkZW50L3Rlcm1zX29mX3VzZS5jZm1kZAIDDw8WBh8AZR8SBQEjHwFoZGQCBQ8PFgYfAGUfEgUBIx8BaGRkGAUFEWN0bDAwJGx2TG9naW5WaWV3Dw9kAgFkBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WCgUzY3RsMDAkQ29udGVudCRjdGxOYXYkSW1nQnRuQmxvY2tHcm91cE1vcmVFeHBhbmROb2RlBTVjdGwwMCRDb250ZW50JGN0bE5hdiRJbWdCdG5CbG9ja0dyb3VwTW9yZUNvbGxhcHNlTm9kZQUuY3RsMDAkQ29udGVudCRjdGxOYXYkMTgwNjE2NzYkSW1nQnRuRXhwYW5kTm9kZQUwY3RsMDAkQ29udGVudCRjdGxOYXYkMTgwNjE2NzYkSW1nQnRuQ29sbGFwc2VOb2RlBS5jdGwwMCRDb250ZW50JGN0bE5hdiQxODA3MzQwOSRJbWdCdG5FeHBhbmROb2RlBTBjdGwwMCRDb250ZW50JGN0bE5hdiQxODA3MzQwOSRJbWdCdG5Db2xsYXBzZU5vZGUFQ2N0bDAwJENvbnRlbnQkY3RsTmF2JDE4MDczNDA5JEdyZEFjdHZEZXRhaWxzJGN0bDAzJEltZ0J0bkV4cGFuZE5vZGUFRWN0bDAwJENvbnRlbnQkY3RsTmF2JDE4MDczNDA5JEdyZEFjdHZEZXRhaWxzJGN0bDAzJEltZ0J0bkNvbGxhcHNlTm9kZQVdY3RsMDAkQ29udGVudCRjdGxUaW1ldGFibGVNYWluJEZsZXhpRXh0JFR0YWJsZUZsZXhpRXh0UGFuZWxfTGVnZW5kJFR0YWJsZUZsZXhpRXh0UGFuZWxUYWJJbWcxBWJjdGwwMCRDb250ZW50JGN0bFRpbWV0YWJsZU1haW4kRmxleGlFeHQkVHRhYmxlRmxleGlFeHRQYW5lbF9MZWdlbmQkVHRhYmxlRmxleGlFeHRQYW5lbFRhYkxlZ2VuZEhkcgUsY3RsMDAkQ29udGVudCRjdGxOYXYkMTgwNjE2NzYkR3JkQWN0dkRldGFpbHMPPCsACgEIAgFkBSxjdGwwMCRDb250ZW50JGN0bE5hdiQxODA3MzQwOSRHcmRBY3R2RGV0YWlscw88KwAKAQgCAWQFNGN0bDAwJENvbnRlbnQkY3RsRmlsdGVyJENib1N0dWR5UGVyaW9kRmlsdGVyJGVsYkxpc3QPFCsAAmRkZP0sqG4q0VdvWB+nUX5C64LuKb70"/>
+   <script src="/eStudent/WebResource.axd?d=wtRGqyj17n5SnpsBL5itX3V5G7VSdUuMUtRYJ5uaw_okNm_5Ldr9Nk3vtG3Kjrby4IPOHiBu3L8KzyphN3eUlhdzZOJNyMjyN3IDEBCpvD8A5W2soCo2V-1GLTR74rukcgxc6RGvRICrdBIQ2Z4KIDG9Yvw1&amp;t=635883554725798470" type="text/javascript">
+   </script>
+   <script src="/eStudent/WebResource.axd?d=zhXoWPk95shBV4GakbCCX5bC9oDt9AtsaqPh6kpGeLEE943kMqmnYSm1fKZ2fz_b9ZYSIoJ1P2G4ubTTg9QO1i96JQwTF3B1AdBVBuB4sAOghSYby9m2t3M2CpkBciSDJcUxWvYNS5t_0p2Z-6pv354dMIU1&amp;t=635883554725798470" type="text/javascript">
+   </script>
+   <script src="/eStudent/WebResource.axd?d=XZg7i02MpFlLltKOVsfl5tj84Gcs7jCMq_QUrpIZPzNo-EU-lARAiPNxcwbEdogQXPy-0mUqiPGHc7GIK5UHQ4awBFBayUWL6J1jTNclAKwjieyeO3pv4SXuutjH_-oIL9BuGxV5be_DDF0TQ3AjeMP-3Ec1&amp;t=635883554725798470" type="text/javascript">
+   </script>
+   <script type="text/javascript">
+    //<![CDATA[
+$(function() {
+   $("#ctl00_Content_ctlTimetableMain .cssTtbleColDay").resizable();
+   $("#ctl00_Content_ctlTimetableMain .cssTtbleColDay").resizable("option", "alsoResize", "#ctl00_Content_ctlTimetableMain .cssTtableDayGroup,#ctl00_Content_ctlTimetableMain .cssTtableTimelineContainer");
+   $("#ctl00_Content_ctlTimetableMain .cssTtbleColDay").resizable("option", "minWidth", "80");
+   $("#ctl00_Content_ctlTimetableMain .cssTtbleColDay").resizable("option", "minHeight", "220");
+   $("#ctl00_Content_ctlTimetableMain .cssTtbleColDay").bind("resizestop", function(event, ui) {
+       $(this).height("");
+       $(this).find(".cssHiddenDayWidth:first").val($(this).width());
+       $("#ctl00_Content_ctlTimetableMain .cssHiddenHeight:first").val($(this).closest(".cssTtableDayGroup").height());
+   });
+});
+$(function() {
+   $("#ctl00_Content_ctlTimetableMain .cssClassInnerPanel").hover(function() {
+       $("#ctl00_Content_ctlTimetableMain #ctl00_Content_ctlTimetableMain_TimelineContainer .cssTtableFloatInfoContainer:first").css({ "top": $(this).closest(".cssClassContainer").css("top"), "height": $(this).closest(".cssClassContainer").css("height") });
+       $("#ctl00_Content_ctlTimetableMain #ctl00_Content_ctlTimetableMain_TimelineContainer .cssTtableFloatInfoContainer:first .cssTtableFloatInfoHeader").text($(this).find(".cssHiddenStartTm:first").val()); 
+       $("#ctl00_Content_ctlTimetableMain #ctl00_Content_ctlTimetableMain_TimelineContainer .cssTtableFloatInfoContainer:first .cssTtableFloatInfoFooter").text($(this).find(".cssHiddenEndTm:first").val()); 
+       $("#ctl00_Content_ctlTimetableMain #ctl00_Content_ctlTimetableMain_TimelineContainer .cssTtableFloatInfoContainer:first").stop().css("opacity", "").show();
+       var loMainContain = $(this).closest(".cssClassContainer");
+       var loBodyPnl = loMainContain.find(".cssTtableBodyPanel");
+       clsResizeDiv(loMainContain, loBodyPnl, true);
+       loMainContain.css('z-index', '999');
+   }, function() {
+       $("#ctl00_Content_ctlTimetableMain #ctl00_Content_ctlTimetableMain_TimelineContainer .cssTtableFloatInfoContainer:first").fadeOut(5000);
+       var loMainContain = $(this).closest(".cssClassContainer");
+       var loBodyPnl = loMainContain.find(".cssTtableBodyPanel");
+       clsResizeDiv(loMainContain, loBodyPnl, false);
+       loMainContain.css('z-index', '');
+       
+   });
+   $("#ctl00_Content_ctlTimetableMain .cssClassInnerPanel").find(".cssTtableCheckBox").addClass("cssTtableCheckBoxHidden");
+});
+$(function() {
+   $("#ctl00_Content_ctlTimetableMain .cssClassInnerPanel .cssTtableFooterPanel .cssTtableFooterHdrPanel").hover(function() {
+       $(this).siblings(".cssTtableFooterBodyPanel").show();
+   }, function() {
+       $(this).siblings(".cssTtableFooterBodyPanel").hide();
+   });
+});
+$(function() {
+   $("#ctl00_Content_ctlTimetableMain .cssClassInnerPanel .cssTtableHeaderPanel .cssTtableHeaderPanelUnavailTxt").hover(function() {
+       $(this).siblings(".cssHiddenUnavailRsn").show();
+   }, function() {
+       $(this).siblings(".cssHiddenUnavailRsn").hide();
+   });
+});
+$(function() {
+   $("#ctl00_Content_ctlTimetableMain .cssTtbleColHeader .cssHeaderExpandPnl input[type='image']").click(function() {
+       var expFgObj = $(this).siblings(".cssHiddenHdrExpPnlExpFg:first"); 
+       var resize = 0;
+       if (expFgObj.val()=="True"){
+           resize = $(this).siblings(".cssHiddenHdrExpPnlShkWid:first").val(); 
+       }
+       else{
+           resize = $(this).siblings(".cssHiddenHdrExpPnlExpWid:first").val(); 
+       }
+       if (resize == 0) {return false;}
+       $(this).closest(".cssTtbleColDay").width(resize + 'px');
+       var currWidObj = $(this).closest(".cssTtbleColDay").children(".cssHiddenDayWidth:first"); 
+       var dayGroupObj = $(this).closest(".cssTtableDayGroup")
+       dayGroupObj.width(dayGroupObj.width() + (resize-currWidObj.val()));
+       $(this).parent().children("input[type='image']").show();
+       $(this).hide();
+       currWidObj.val(resize); 
+       if (expFgObj.val()=="True"){
+           expFgObj.val("False");
+       }
+       else{
+           expFgObj.val("True");
+       }
+       return false;
+   });
+});
+function highlightOn(innerCls, clsGrpId)
+{
+      var loGrp = $("#ctl00_Content_ctlTimetableMain .cssTtableDayGroup .cssClassContainer .cssTtableHeaderPanel .cssHiddenClsGroupId[value='" + clsGrpId + "']").closest(".cssClassInnerContainer");
+      if (loGrp.hasClass("cssTtableClassHover")) { return;}
+      loGrp.css('background-color','#F93');
+      loGrp.addClass("cssTtableClassNonHover");
+      loGrp.addClass("cssTtableClassHover");
+       var chkSelId = innerCls.find(".cssTtableCheckBox").children("input[type='checkbox']")
+       if (chkSelId.size() == 0) { 
+           return;}
+       var isChecked = chkSelId.is(':checked'); 
+       var chkSelIdObj = chkSelId.closest(".cssTtableHeaderPanel").children(".cssHiddenClsSelector:first");
+       clsSttsSync(chkSelIdObj.val(), !isChecked, true);
+}
+function highlightOff(innerCls, clsGrpId)
+{
+   var colourObj = $("#ctl00_Content_ctlTimetableMain .cssTtableDayGroup .cssClassContainer .cssTtableHeaderPanel .cssHiddenClsGroupId:first").siblings(".cssHiddenSspColour");
+   var loGrp = $("#ctl00_Content_ctlTimetableMain .cssTtableDayGroup .cssClassContainer .cssTtableHeaderPanel .cssHiddenClsGroupId[value='" + clsGrpId + "']").closest(".cssClassInnerContainer");
+   if (colourObj.size() > 0){
+      loGrp.css('background-color', colourObj.val());
+      loGrp.removeClass("cssTtableClassNonHover");
+      loGrp.removeClass("cssTtableClassHover");
+   }
+       var chkSelId = innerCls.find(".cssTtableCheckBox").children("input[type='checkbox']")
+       if (chkSelId.size() == 0 || chkSelId.data('ClickTrig') == 1) { 
+           chkSelId.removeData('ClickTrig');
+           loGrp.each(function(){
+           var loMainContain = $(this).closest(".cssClassContainer");
+           var loBodyPnl = loMainContain.find(".cssTtableBodyPanel");
+           clsResizeDiv(loMainContain, loBodyPnl, false);
+           });
+           return;}
+       var isChecked = chkSelId.is(':checked'); 
+       var chkSelIdObj = chkSelId.closest(".cssTtableHeaderPanel").children(".cssHiddenClsSelector:first");
+       clsSttsSync(chkSelIdObj.val(), isChecked, true);
+}
+$(function() {
+   $("#ctl00_Content_ctlTimetableMain .cssTtableDayGroup .cssClassContainer .cssTtableHeaderPanel .cssHiddenClsGroupId").closest(".cssClassInnerContainer").hover(function() {
+       var grpObj = $(this).find(".cssTtableHeaderPanel").children(".cssHiddenClsGroupId:first");
+       if (grpObj.size()>0){highlightOn($(this), grpObj.val())}
+   }, function() {
+       var grpObj = $(this).find(".cssTtableHeaderPanel").children(".cssHiddenClsGroupId:first");
+       if (grpObj.size()>0){highlightOff($(this), grpObj.val())}
+   });
+});
+function updateNavTxt(clsSelId){
+   var clsGrpIdObj = $("#ctl00_Content_ctlTimetableMain .cssTtableDayGroup .cssClassContainer .cssTtableHeaderPanel .cssHiddenClsSelector[value='" + clsSelId + "']:first").siblings(".cssHiddenClsGroupId:first");
+   if (clsGrpIdObj.size() == 0) {return;}
+   var clsGrpIdObjAll = $("#ctl00_Content_ctlTimetableMain .cssTtableDayGroup .cssClassContainer .cssTtableHeaderPanel .cssHiddenClsGroupId[value='" + clsGrpIdObj.val() + "']");
+   var txt = '';
+   clsGrpIdObjAll.each(function(){
+       var initSelFgObj = $(this).siblings(".cssHiddenInitSelFg");
+       var currSelFgObj = $(this).siblings(".cssHiddenSelected");
+       var initSelFgVal = 'False';
+       if (initSelFgObj.val() != '0'){initSelFgVal = 'True';}
+       if (initSelFgVal != currSelFgObj.val()){txt = txt +  $(this).siblings(".cssHiddenActionTxtPnl").html();}
+   });
+   var actGrpIdObj = $("#ctl00_Content_ctlNav_ctl04 .cssTtableSspNavContainer .cssTtableSspNavDetailsContainer .cssTtableSspNavActvGrid .cssTtableSspNavActvMain .cssTtableSspNavContent input[value=" + clsGrpIdObj.val() + "]");
+   if (txt.length > 0){
+       actGrpIdObj.siblings(".cssTtableNavMainText").hide();
+       actGrpIdObj.siblings(".cssTtableNavMainTextAction").show();
+       actGrpIdObj.siblings(".cssTtableNavMainTextAction").html(txt);
+   } else {
+       actGrpIdObj.siblings(".cssTtableNavMainTextAction").html('').hide();
+       actGrpIdObj.siblings(".cssTtableNavMainText").show();
+   }
+}
+function clsSttsSync(chkSelId, checkOn, viewOnly){
+   var clsSelObj = $("#ctl00_Content_ctlTimetableMain .cssTtableDayGroup .cssClassContainer .cssTtableHeaderPanel .cssHiddenClsSelector[value='" + chkSelId + "']");
+   var clsGrpIdObj = clsSelObj.filter(":first").siblings(".cssHiddenClsGroupId:first");
+   if (clsGrpIdObj.size() == 0) {return;}
+   var clsGrpId = clsGrpIdObj.val();
+   var loClsGrp = $("#ctl00_Content_ctlTimetableMain .cssTtableDayGroup .cssClassContainer .cssTtableHeaderPanel .cssHiddenClsGroupId[value='" + clsGrpId + "']");
+   var loUnselect = false;
+   var loHiddenValues = loClsGrp.siblings(".cssHiddenSelected");
+   loHiddenValues.each(function(){
+       if (mClsSttsSync($(this), chkSelId, checkOn, viewOnly)) {loUnselect = true;}
+   });
+if (loUnselect == true) { 
+   loHiddenValues.each(function(){
+   var loClassContain = $(this).closest(".cssClassInnerContainer");
+   var loInnerPnl = $(this).closest(".cssClassInnerPanel");
+   var loHiddenClsSel = loInnerPnl.find(".cssHiddenClsSelector[value='" + chkSelId + "']");
+   if (loClassContain.hasClass("cssTtableClassNonHover")) { 
+       loClassContain.removeClass("cssTtableClassNonHover");
+   } else {
+   loClassContain.addClass("cssTtableClassNonHover");}
+   if (loHiddenClsSel.size() == 0) { 
+    loopAnime(loClassContain); 
+    }
+   });
+} 
+    if (!viewOnly) {updateNavTxt(chkSelId);} 
+ }
+function mClsSttsSync(obj, chkSelId, checkOn, viewOnly){
+   var lbTrue  = 'True';
+   var lbFalse  = 'False';
+   var loHiddenClsVal = obj;
+   var loClassContain = loHiddenClsVal.closest(".cssClassInnerContainer");
+   var loInnerPnl = loClassContain.children(".cssClassInnerPanel");
+   var loChkBox = loHiddenClsVal.siblings(".cssTtableCheckBox").children("input[type='checkbox']");
+   var lbOldVal = loChkBox.is(':checked');
+   var loHiddenClsSel = loInnerPnl.find(".cssHiddenClsSelector[value='" + chkSelId + "']");
+   var loIconPnl = loInnerPnl.children(".cssTtableIconPanel").find(".cssIconAction");
+   var loIconVis = loIconPnl.filter(":visible");
+   var loIconHid = loIconPnl.filter(":hidden");
+   var loMainContain = loHiddenClsVal.closest(".cssClassContainer");
+   var loBodyPnl = loInnerPnl.find(".cssTtableBodyPanel");
+   var lbExclude = false;
+   var loUnselect = false;
+   if (!viewOnly) {
+       if (loHiddenClsSel.size() > 0) { loChkBox.prop('checked', checkOn);} 
+       if (loHiddenClsSel.size() == 0 && lbOldVal) { loChkBox.prop('checked', false);} 
+       return; 
+      }
+   if (loHiddenClsSel.size() == 0 ) { 
+       if (checkOn && lbOldVal && loHiddenClsVal.val() == lbTrue) { 
+       loHiddenClsVal.val(lbFalse); 
+       loIconVis.hide();
+       loIconHid.show(); }
+       if (!checkOn && lbOldVal && loHiddenClsVal.val() == lbFalse) { 
+           loHiddenClsVal.val(lbTrue); 
+           loIconVis.hide();
+           loIconHid.show(); }
+       }
+       lbExclude =  clsResizeDiv(loMainContain, loBodyPnl, false);
+   if (loHiddenClsSel.size() > 0) { 
+       var lbHoverOut = false;
+       if (lbOldVal == checkOn) {
+       lbHoverOut = true;}
+       loIconVis.hide();
+       loIconHid.show();
+       if (!loUnselect && loClassContain.hasClass("cssTtableClassNonHover")) {loUnselect = lbOldVal;} 
+       loClassContain.removeClass("cssTtableClassNonHover");
+       if (checkOn) { 
+           loHiddenClsVal.val(lbTrue); 
+       } else { 
+           loHiddenClsVal.val(lbFalse); 
+       } 
+       if (!loUnselect) { loopAnime(loClassContain);} 
+       if ((!lbExclude || !lbHoverOut) && !lbHoverOut) { 
+           clsResizeDiv(loMainContain, loBodyPnl, true); 
+           }
+    }
+   return loUnselect; 
+   }
+function clsResizeDiv(mainContain, bodyPnl, isHighlight){
+       if (bodyPnl.size() == 0) {return false;} 
+       if (!isHighlight && mainContain.data('OrgHeight') != null) { 
+           mainContain.height(mainContain.data('OrgHeight')); 
+           if (mainContain.css('z-index') != '999') {mainContain.css('z-index', '');} 
+           mainContain.removeData('OrgHeight')
+           return true;
+       }
+       if (!isHighlight) {return false;}
+       if (mainContain.data('OrgHeight') == null) { 
+           mainContain.data('OrgHeight', mainContain.height());} 
+       if (mainContain.css('z-index') != '999') {mainContain.css('z-index', '995');} 
+       while (bodyPnl[0].scrollHeight > bodyPnl.height()) 
+       {
+           mainContain.height(mainContain.height() + 10); 
+       }
+    return false;
+   }
+  function loopAnime(objAnime) {
+    objAnime.stop(true, false).animate({ 
+       left: Math.round(Math.random() * 3) - ((3 + 1) / 2) +'px', 
+       top: Math.round(Math.random() * 3) - ((3 + 1) / 2) +'px' 
+   }, 100, function () { 
+    objAnime.stop(true, true).animate({ 
+       left: "0px", 
+       top: "0px" 
+       }, 100) 
+      if (!objAnime.hasClass("cssTtableClassHover") || objAnime.hasClass("cssTtableClassNonHover")) { return;}
+       loopAnime(objAnime);
+    });
+  }
+$(function() {
+   $("#ctl00_Content_ctlTimetableMain .cssTtableDayGroup .cssClassContainer .cssTtableHeaderPanel .cssHiddenClsGroupId").siblings(".cssTtableCheckBox").children("input[type='checkbox']").click(function(){
+       var chkSelIdObj = $(this).closest(".cssTtableHeaderPanel").children(".cssHiddenClsSelector:first");
+       if (chkSelIdObj.size() == 0) {return;}
+       var chkSelId = chkSelIdObj.val();
+       var isChecked = $(this).is(':checked'); 
+      if ($(this).data('ClickTrig') == 1) {clsSttsSync(chkSelId, isChecked, true);}
+       $(this).data('ClickTrig', 1);
+       clsSttsSync(chkSelId, isChecked);
+   });
+   $("#ctl00_Content_ctlTimetableMain .cssTtableDayGroup .cssClassContainer .cssTtableHeaderPanel .cssHiddenClsGroupId").siblings(".cssTtableCheckBox").children("input[type='checkbox']").click(function(e){
+     e.stopPropagation();
+   });
+});
+$(function() {
+    $("#ctl00_Content_ctlTimetableMain .cssClassInnerPanel").click(function(){
+    var chkSel = $(this).find(".cssTtableCheckBox").children("input[type='checkbox']")
+    var lbChecked = false; 
+    if (chkSel.is(":disabled")) {return;}
+    if (chkSel.is(':checked')){
+        lbChecked = false;
+      } else {
+        lbChecked = true;
+    }
+    chkSel.prop('checked', lbChecked);
+    chkSel.trigger('click');
+    chkSel.prop('checked', lbChecked);
+   });
+});
+function highlightOnByClsSel(outerCls)
+{
+      var loCls = $("#ctl00_Content_ctlTimetableMain .cssTtableDayGroup .cssClassContainer .cssTtableHeaderPanel .cssHiddenClsSelector[value='" + outerCls.val() + "']").closest(".cssClassInnerContainer");
+      loCls.css('background-color','#F93');
+      loCls.addClass("cssTtableClassNonHover");
+      loCls.addClass("cssTtableClassHover");
+}
+function highlightOffByClsSel(outerCls)
+{
+   var colourObj = $("#ctl00_Content_ctlTimetableMain .cssTtableDayGroup .cssClassContainer .cssTtableHeaderPanel .cssHiddenClsSelector:first").siblings(".cssHiddenSspColour");
+   var loCls = $("#ctl00_Content_ctlTimetableMain .cssTtableDayGroup .cssClassContainer .cssTtableHeaderPanel .cssHiddenClsSelector[value='" + outerCls.val() + "']").closest(".cssClassInnerContainer");
+   if (colourObj.size() > 0){
+       loCls.css('background-color',colourObj.val());
+       loCls.removeClass("cssTtableClassNonHover");
+       loCls.removeClass("cssTtableClassHover");
+   }
+}
+$(function() {
+   $("#ctl00_Content_ctlTimetableMain .cssTtableFlexiExtContainer .cssTtableFlexiExtPanelClassRegOption .cssTtableFlexiExtPanelBody .cssTtableStrmClsSspPnl .cssTtableStrmClsClassPanel").hover(function() {
+       var objs = $(this);
+       var selObjs = objs.children(".cssTtableStrmClsStreamOptHdr:first").find(".cssTtableHiddenClsSel");
+       selObjs.each(function(){
+           highlightOnByClsSel($(this));
+        });
+      var chkSelId = objs.find(".cssTtableStreamOpt").children("input[type='checkbox']")
+      if (chkSelId.size() == 0) { 
+           return;}
+      var isChecked = chkSelId.is(':checked'); 
+      streamCheck(chkSelId, !isChecked, true);
+       
+   }, function() {
+       var objs = $(this);
+       var selObjs = objs.children(".cssTtableStrmClsStreamOptHdr:first").find(".cssTtableHiddenClsSel");
+       selObjs.each(function(){
+           highlightOffByClsSel($(this));
+        });
+       var chkSelId = objs.find(".cssTtableStreamOpt").children("input[type='checkbox']")
+       if (chkSelId.size() == 0 || chkSelId.data('ClickTrig') == 1) { 
+           chkSelId.removeData('ClickTrig');
+       return;}
+       var isChecked = chkSelId.is(':checked'); 
+       streamCheck(chkSelId, isChecked, true);
+   });
+});
+function streamCheck(chkStreamObj, checkOn, hoverOnly)
+{
+ var myKeyVal = new Array(); 
+ var chkSelOpHdr = chkStreamObj.closest(".cssTtableStrmClsStreamOptHdr");
+ var chkSelIdObjs = chkSelOpHdr.children(".cssTtableHiddenClsSel");
+ if (chkSelIdObjs.size() == 0) {return;}
+ var loSelStreams =  $("#ctl00_Content_ctlTimetableMain .cssTtableFlexiExtContainer .cssTtableFlexiExtPanelClassRegOption .cssTtableFlexiExtPanelBody .cssTtableStrmClsSspPnl .cssTtableStrmClsClassPanel");
+ loSelStreams.each(function(){
+   var loOptHdr =  $(this).children(".cssTtableStrmClsStreamOptHdr");
+   if (loOptHdr.attr('id') == chkSelOpHdr.attr('id')) {return;}
+   var loCheckedObj = loOptHdr.find(".cssTtableStreamOpt").children("input[type='checkbox']");
+   var lbUsed = false; 
+   if (!loCheckedObj.is(':checked')) {return;}
+   var loOptHidden =  loOptHdr.children(".cssTtableHiddenClsSel");
+   chkSelIdObjs.each(function(){
+       var loHiddenCls = loOptHidden.filter("[value='" + $(this).val() + "']");
+       if (loHiddenCls.size() > 0) { 
+           lbUsed = true;
+           return false;
+       }
+   });
+   if (!lbUsed) {return;}
+   if (hoverOnly) {
+      if (!checkOn) {loOptHdr.children(".cssTtableHiddenStreamOptChked").val('True');}
+      if (checkOn) {loOptHdr.children(".cssTtableHiddenStreamOptChked").val('False');}
+    } else { 
+      loOptHdr.children(".cssTtableStreamOpt").children("input[type='checkbox']").prop('checked', false);
+    }
+   loOptHidden.each(function(){
+       if (jQuery.inArray($(this).val(), myKeyVal) != -1) {return;}  
+       var loSelClsObj = $("#ctl00_Content_ctlTimetableMain .cssTtableDayGroup .cssClassContainer .cssTtableHeaderPanel .cssHiddenClsSelector[value='" + $(this).val() + "']");
+       var loSelClsHidden = loSelClsObj.siblings(".cssHiddenSelected");
+       mClsSttsSync(loSelClsHidden, $(this).val(), !checkOn, hoverOnly);
+       myKeyVal[myKeyVal.length] = $(this).val();
+   });
+ });
+   myKeyVal = new Array(); 
+   chkSelIdObjs.each(function(){
+       if (jQuery.inArray($(this).val(), myKeyVal) != -1) {return;}  
+       var loSelClsObj = $("#ctl00_Content_ctlTimetableMain .cssTtableDayGroup .cssClassContainer .cssTtableHeaderPanel .cssHiddenClsSelector[value='" + $(this).val() + "']");
+       var loSelClsHidden = loSelClsObj.siblings(".cssHiddenSelected");
+       mClsSttsSync(loSelClsHidden, $(this).val(), checkOn, hoverOnly);
+       myKeyVal[myKeyVal.length] = $(this).val();
+   });
+   if (hoverOnly) {
+      if (!checkOn) {chkSelOpHdr.children(".cssTtableHiddenStreamOptChked").val('False');}
+      if (checkOn) {chkSelOpHdr.children(".cssTtableHiddenStreamOptChked").val('True');}
+    } else { 
+      chkSelOpHdr.children(".cssTtableStreamOpt").children("input[type='checkbox']").prop('checked', checkOn);
+    }
+ } 
+$(function() {
+   $("#ctl00_Content_ctlTimetableMain .cssTtableFlexiExtContainer .cssTtableFlexiExtPanelClassRegOption .cssTtableFlexiExtPanelBody .cssTtableStrmClsSspPnl .cssTtableStrmClsClassPanel").children(".cssTtableStrmClsStreamOptHdr").children(".cssTtableStreamOpt").children("input[type='checkbox']").click(function(){
+    var isChecked = $(this).is(':checked'); 
+    if ($(this).data('ClickTrig') == 1) {
+       streamCheck($(this), isChecked, true); 
+       }
+    $(this).data('ClickTrig', 1);
+    streamCheck($(this), isChecked, false); 
+   });
+   $("#ctl00_Content_ctlTimetableMain .cssTtableFlexiExtContainer .cssTtableFlexiExtPanelClassRegOption .cssTtableFlexiExtPanelBody .cssTtableStrmClsSspPnl .cssTtableStrmClsClassPanel").children(".cssTtableStrmClsStreamOptHdr").children(".cssTtableStreamOpt").children("input[type='checkbox']").click(function(e){
+     e.stopPropagation();
+   });
+    $("#ctl00_Content_ctlTimetableMain .cssTtableFlexiExtContainer .cssTtableFlexiExtPanelClassRegOption .cssTtableFlexiExtPanelBody .cssTtableStrmClsSspPnl .cssTtableStrmClsClassPanel").click(function(){
+    var chkSel = $(this).find(".cssTtableStreamOpt").children("input[type='checkbox']");
+    var lbChecked = false; 
+    if (chkSel.is(":disabled")) {return;}
+    if (chkSel.is(':checked')){
+        lbChecked = false;
+      } else {
+        lbChecked = true;
+    }
+    chkSel.prop('checked', lbChecked);
+    chkSel.trigger('click');
+    chkSel.prop('checked', lbChecked);
+   });
+});
+$(function() {
+   $("#ctl00_Content_ctlNav_ctl04 .cssTtableSspNavContainer .cssTtableSspNavDetailsContainer .cssTtableSspNavActvGrid .cssTtableSspNavActvMain .cssTtableSspNavContent .cssTtableHotspot").hover(function() {
+       var selClsGrpSel = $(this).closest(".cssTtableNavMainText").siblings(".cssHiddenClsGroupId:first");
+       if (selClsGrpSel.size() == 0) {return;}
+           highlightOn($(this), selClsGrpSel.val());
+       
+   }, function() {
+       var selClsGrpSel = $(this).closest(".cssTtableNavMainText").siblings(".cssHiddenClsGroupId:first");
+       if (selClsGrpSel.size() == 0) {return;}
+           highlightOff($(this), selClsGrpSel.val());
+       
+   });
+});
+$(function() {
+   $("#ctl00_Content_ctlNav_ctl04 .cssTtableExpandNode input").click(function() {
+       var ctl = $(this).siblings("input[name*='HiddenClassNavExpand']");
+       $(this).closest(".cssTtableSspNavMasterContainer").siblings(".cssTtableSspNavDetailsContainer:first").slideToggle(500);
+       $(this).parent().find("input[type='image']").css("display", "");
+       $(this).css("display", "none");
+       if (ctl.val()=="True"){
+           ctl.val("False");
+       }
+       else{
+           ctl.val("True");
+       }
+       return false;
+   });
+   $("#ctl00_Content_ctlNav_ctl04 .cssTtableExpandNode input").click(function(e) {
+    e.stopPropagation(); 
+   });
+   $('#ctl00_Content_ctlNav_ctl04 .cssTtableSspNavMasterContainer tbody tr td:not(.cssTtableSspNavMasterAction)').click(function() {
+   var loExpandNode = $(this).parent().find(".cssTtableExpandNode").children("input[type='image']:visible");
+   loExpandNode.click();
+});
+   $("#ctl00_Content_ctlNav_ctl04 .cssTtableSspNavPanelHeader input").click(function() {
+       var ctl = $(this).siblings("input[name*='HiddenExpandMoreInfo']");
+       $(this).closest(".cssTtableSspNavPanelHeader").siblings(".cssTtableSspNavPanelBody:first").toggleClass("cssTtableSspNavPanelMoreHighlight").slideToggle(500);
+       $(this).closest(".cssTtableSspNavPanelHeader").toggleClass("cssTtableSspNavPanelMoreHighlight");
+       $(this).parent().find("input[type='image']").css("display", "");
+       $(this).css("display", "none");
+       if (ctl.val()=="True"){
+           ctl.val("False");
+       }
+       else{
+           ctl.val("True");
+       }
+       return false;
+   });
+$("#ctl00_Content_ctlNav_ctl04 .cssTtableSspNavPanelMoreLink").click(function() {
+   $(this).parent().find("input[type='image']:visible").click();
+       return false;
+});
+$("#ctl00_Content_ctlNav_PnlNavHdr .cssTtableNavHdrExpandAllComp input, .cssTtableExpandCollapseAll").click(function() {
+       var par = $(this).closest(".cssTtableNavHdr").parent();
+       var ctl = $(this).siblings("input[name*='HiddenExpandAll']");
+       var comp_hidden;
+       var more_info_hidden;
+       par.find(".cssTtableExpandCollapseAll").toggleClass("cssDisplayNone");
+       par.find(".cssTtableExpandCollapseAllNode").toggle();
+       if (ctl.val()=="True"){
+           ctl.val("False");
+           comp_hidden = par.find("input[name*='HiddenClassNavExpand'][value='True']");
+           comp_hidden.val("False");
+           more_info_hidden = par.find("input[name*='HiddenExpandMoreInfo'][value='True']");
+           more_info_hidden.val("False");
+       }
+       else{
+           ctl.val("True");
+           comp_hidden = par.find("input[name*='HiddenClassNavExpand'][value='False']");
+           comp_hidden.val("True");
+           more_info_hidden = par.find("input[name*='HiddenExpandMoreInfo'][value='False']");
+           more_info_hidden.val("True");
+       }
+           comp_hidden.siblings("input[type='image']").toggle();
+           comp_hidden.closest(".cssTtableSspNavMasterContainer").siblings(".cssTtableSspNavDetailsContainer").slideToggle(500);
+           more_info_hidden.siblings("input[type='image']").toggle();
+           more_info_hidden.closest(".cssTtableSspNavPanelHeader").siblings(".cssTtableSspNavPanelBody").toggleClass("cssTtableSspNavPanelMoreHighlight").slideToggle(500);
+           more_info_hidden.closest(".cssTtableSspNavPanelHeader").toggleClass("cssTtableSspNavPanelMoreHighlight");
+       return false;
+});
+});
+//]]>
+   </script>
+   <script type="text/javascript">
+    function showProgressIndicator(text){
+   if (text) $("#ctl00_Content_lblMsg")[0].innerText = text;
+   $("#ctl00_Content_pnlContainer").addClass("cssProgressContainer ");
+   $("#ctl00_Content_pnlContainer").removeClass("cssDisplayNone");
+   $.blockUI.defaults.css = {};
+   $.blockUI({ 
+       message: $("#ctl00_Content_ctlProgressIndicator")
+    });
+}
+$(document).ready(function(){
+   $("#ctl00_Content_pnlPreload").remove();
+});
+function hideProgressIndicator(){
+   $("#ctl00_Content_pnlContainer").addClass("cssDisplayNone");
+   $("#ctl00_Content_pnlContainer").removeClass("cssProgressContainer");
+ $.unblockUI();
+}
+   </script>
+   <script type="text/javascript">
+    <!-- 
+$(document).ready(function() {
+$("body").on("click", "input[type='submit']", function() { showProgressIndicator(); });
+$(".cssSspActionContainer").on("click", "a", function() { showProgressIndicator(); });
+});
+-->
+   </script>
+   <script src="/eStudent/WebResource.axd?d=4-myZgg0sj6eC57juWoj9jcnGD2NCk2v4rDVJXHJ0sQZl8aVV3oK2RfIbAMUto2rK1edmY41ikt9m3m4iON3eX8U4-Lk3al5vG9fujfmAxD0yipxtn1x9XxyYUAl2llGrSEm0g2&amp;t=635883554725798470" type="text/javascript">
+   </script>
+   <script type="text/javascript">
+    //<![CDATA[
+$(function() {
+   $("#ctl00_Content_ctlTimetableMain_FlexiExt .cssTtableFlexiExtPanelTab input").click(function() {
+       var currOpen = $(this).siblings(".cssHiddenFlexiExtPanel_Open:first");
+       if (currOpen.val()=="True"){
+           currOpen.val("False");
+               $(this).closest(".cssTtableFlexiExtPanel").animate({ left: 0 }, 500               );
+           var openTab = $(this).closest(".cssTtableFlexiExtContainer").find(".cssHiddenFlexiExtPanel_Open[value='True']");
+           if (openTab.size()==0){
+               $(this).closest(".cssContainerOffset").animate({ marginLeft: 0}, 500);
+           }
+       }
+       else{
+           currOpen.val("True");
+               $(this).closest(".cssTtableFlexiExtPanel").animate({ left: -205 }, 500               );
+           if ($(this).closest(".cssContainerOffset").css("marginLeft")!="205px"){
+               $(this).closest(".cssContainerOffset").animate({ marginLeft:205 }, 500);
+           }
+       }
+       var lsImgAltObj = $(this).parent().find(".cssHiddenFlexiExtPanelTabImgAlt:first");
+       var lsImgCurrObj = $(this).parent().find(".cssHiddenFlexiExtPanel_Img:first");
+       var lsImgAlt = lsImgAltObj.val();
+       
+       lsImgAltObj.val(lsImgCurrObj.attr("src"));
+       lsImgCurrObj.attr({ src:  lsImgAlt });
+       return false;
+   });
+});
+//]]>
+   </script>
+   <script src="/eStudent/WebResource.axd?d=blOLy9pm4pR2X7p7xoXubvjpUfQ5AuAaQWSzEPyK-CNzIH7i514eKbAeoeSQHbjx5Y58GmBKgGaLbEBE49IVjPFWoWFaRwbivy8tsSNJT7S3UF_0VSZF4BvpC3xtdQxkxOZYI9pVrv0J4ewVyO0eEfYWlxA1&amp;t=635883554725798470" type="text/javascript">
+   </script>
+   <script src="/eStudent/WebResource.axd?d=eDWuLl_XtEjBHMBkdL2GNYjAbR4Qr_YFKD0xtyXaDjgkgkmyZTpnhnUPAQ7bPv62rPYnqIs2Qei1cvM5yEXyn_eiBCpvCwQoVXZL-SsUtAUHEWVnuSn3j7Aa3FFoRvFziZk9GmeChl6YeqRqbVr5F_JGlP41&amp;t=635883554725798470" type="text/javascript">
+   </script>
+   <script type="text/javascript">
+    //<![CDATA[
+$(function() {
+   $("#ctl00_Content_ctlFilter_TxtStartDt").datepicker();
+   var temp =  $("#ctl00_Content_ctlFilter_TxtStartDt").val(); 
+   $("#ctl00_Content_ctlFilter_TxtStartDt").val(''); 
+   $("#ctl00_Content_ctlFilter_TxtStartDt").datepicker('option', 'dateFormat', 'dd-M-yy');
+   $("#ctl00_Content_ctlFilter_TxtStartDt").val(temp); 
+   $("#ctl00_Content_ctlFilter_TxtStartDt").datepicker('option', 'shortYearCutoff', GetTwoDigitYearCutoff());
+   $("#ctl00_Content_ctlFilter_TxtStartDt").datepicker('option', 'showAnim', 'show');
+   $("#ctl00_Content_ctlFilter_TxtStartDt").datepicker('option', 'showButtonPanel', true);
+   $("#ctl00_Content_ctlFilter_TxtStartDt").datepicker('option', 'duration', '');
+   $("#ctl00_Content_ctlFilter_TxtStartDt").datepicker('option', 'numberOfMonths', 3);
+   $("#ctl00_Content_ctlFilter_CboStudyPeriodFilter select:first").change(function(){
+       $("#ctl00_Content_ctlFilter_TxtStartDt").val('');
+       var srchVal = ($('OPTION:selected', this).val()).split('-');
+       if (srchVal.length != 3) {return;}
+       if (srchVal[2].length == 0) {return;}
+       var dtTemp = new Date();
+       dtTemp.setTime(Date.parse(srchVal[2]));
+       $("#ctl00_Content_ctlFilter_TxtStartDt").datepicker('option', 'defaultDate', dtTemp);
+   });
+   
+   var currSel = ($('OPTION:selected', $("#ctl00_Content_ctlFilter_CboStudyPeriodFilter select:first")));
+   if (currSel.size() != 0){
+       var currSelVal = currSel.val().split('-');
+       if (currSelVal.length == 3) {
+           if (currSelVal[2].length > 0) {
+               var dtTemp = new Date();
+               dtTemp.setTime(Date.parse(currSelVal[2]));
+               $("#ctl00_Content_ctlFilter_TxtStartDt").datepicker('option', 'defaultDate', dtTemp);
+           }
+       }
+   }
+   $("#ctl00_Content_ctlFilter_BtnHelpOpen").click(function(){
+       $("#ctl00_Content_ctlFilter_HiddenHlpOpenStts").val('True');
+       $("#ctl00_Content_ctlFilter_BtnHelpOpen").hide();
+       $("#ctl00_Content_ctlFilter_BtnHelpClose").show();
+       $("#ctl00_Content_ctlFilter_PnlHelp").slideToggle();
+       $(this).parent().addClass('cssTtableHelpOn');
+       return false;
+   });
+   $("#ctl00_Content_ctlFilter_BtnHelpClose").click(function(){
+       $("#ctl00_Content_ctlFilter_HiddenHlpOpenStts").val('False');
+       $("#ctl00_Content_ctlFilter_BtnHelpOpen").show();
+       $("#ctl00_Content_ctlFilter_BtnHelpClose").hide();
+       $("#ctl00_Content_ctlFilter_PnlHelp").slideToggle();
+       $(this).parent().removeClass('cssTtableHelpOn');
+       return false;
+   });
+});
+//]]>
+   </script>
+   <script src="/eStudent/ScriptResource.axd?d=GQGsdJw22kveMVJc4kKGTfS7BC5nWoynvxgED7AsHKYYBEctS8qx7wIqK3WQwwFXWHfJvjNgtCsPyt9lR0OrMk7iOY6Z4vySDE071nRlGj9IUR80tKACpCWBXpzK1Ye_7kk37a_4rar2SD0NRiQNGUcnDaM1&amp;t=ffffffffbcb9b94a" type="text/javascript">
+   </script>
+   <input id="__VIEWSTATEGENERATOR" name="__VIEWSTATEGENERATOR" type="hidden" value="D48CA62C"/>
+   <input id="__EVENTVALIDATION" name="__EVENTVALIDATION" type="hidden" value="/wEWMAKvztb0CAKDptReAoqn2dICAuqX8bwBApu8hxMC+Mjl5goCmum92QYC9fqghA4CiNi35QQCm5HFkgoCy+rZ+wwCteCp+w8CjLXltAkCgsOYiQUCgcrt6wEC1oL4yAECtvu12w8Covu5xgsC+//+1AsC1N/hrw4C0rza9wYCmLWHKwKcteO0AgLp9bjmBQLEtKiVBgL7pveSBQK16LPCCQLXjcGeDgLuoYP9DALHoc6ODwKzqMDeBAKzqKyDDAKFmLzICwLo7LG1BgLY2uLFBALnhLe3BALwl5+1BAKkk6WrAgK1/eapDwKz94yoDgLp3/ZyAoetidQDAtOxk80FAv624J4GAuTtyPYIAq+QwIwCAu+BjJAFAsDioLIEOruwTwkSDNM2OAWQPqYa11IMw70="/>
+   <div class="navbar">
+    <div class="navbar-header">
+     <div id="divBanner">
+      <div class="cssT1SmBannerLogo">
+      </div>
+      <div class="cssT1SmHeading">
+       <div class="btn-group">
+        <h4>
+         Welcome Samuel
+        </h4>
+        <small>
+         <a accesskey="L" class="cssT1SmLogout btn btn-link" href="javascript:__doPostBack('ctl00$lvLoginView$hlLogout','')" id="ctl00_lvLoginView_hlLogout" title="Log out and exit eStudent">
+          Log Out
+         </a>
+        </small>
+       </div>
+      </div>
+      <div class="kick">
+      </div>
+      <div class="cssT1SmBannerRightLogo">
+      </div>
+     </div>
+    </div>
+    <div class="navbar-inner">
+     <div class="container-fluid">
+      <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse" title="Show the site menu">
+       <span class="icon-bar">
+       </span>
+       <span class="icon-bar">
+       </span>
+       <span class="icon-bar">
+       </span>
+      </a>
+      <div class="nav-collapse">
+       <ul class="nav" id="ctl00_lstTabbar">
+        <li>
+         <a href="PersDtls10.aspx?r=%23CU.ESTU.STUDENT&amp;f=%23CU.EST.PERSDTLS.WEB">
+          My Details
+         </a>
+        </li>
+        <li>
+         <a href="AppnSum010.aspx?r=%23CU.ESTU.STUDENT&amp;f=%23CU.EST.APPNSUM.WEB">
+          My Applications
+         </a>
+        </li>
+        <li>
+         <a href="OfferDtls10.aspx?r=%23CU.ESTU.STUDENT&amp;f=%23CU.EST.OFFRDTLS.WEB">
+          My Offers
+         </a>
+        </li>
+        <li>
+         <a href="eCAFDtls10.aspx?r=%23CU.ESTU.STUDENT&amp;f=%23CU.EST.ECAFDTLS.WEB">
+          My eCAFs
+         </a>
+        </li>
+        <li>
+         <a href="EnrDtls10.aspx?r=%23CU.ESTU.STUDENT&amp;f=%23CU.EST.ENRDTLS.WEB">
+          My Enrolment
+         </a>
+        </li>
+        <li class="active">
+         <a href="StudentTtable10.aspx?r=%23CU.ESTU.STUDENT&amp;f=%23CU.EST.TIMETBL.WEB">
+          My Classes
+         </a>
+        </li>
+        <li>
+         <a href="FinTxnDtls10.aspx?r=%23CU.ESTU.STUDENT&amp;f=%23CU.EST.FINTXN.WEB">
+          My Finances
+         </a>
+        </li>
+        <li>
+         <a href="ResultsDtls10.aspx?r=%23CU.ESTU.STUDENT&amp;f=%23CU.EST.RSLTDTLS.WEB">
+          My Results
+         </a>
+        </li>
+        <li>
+         <a href="StuDocs10.aspx?r=%23CU.ESTU.STUDENT&amp;f=%23CU.EST.STUDOCS.WEB">
+          My Documents
+         </a>
+        </li>
+       </ul>
+      </div>
+      <a href="http://oasis.curtin.edu.au/help/estudent/" id="helpLink" onclick="newwindow=window.open(this.href, this.target, 'menubar=0,scrollbars=1,resizable=1,width=900,height=700'); newwindow.focus(); return false;" target="help">
+       Help
+      </a>
+     </div>
+    </div>
+   </div>
+   <div class="container-fluid page-container">
+    <div class="row-fluid">
+     <div class="span2 cssSideNavigationBar" id="ctl00_divSideNavigation">
+      <ul class="nav nav-list well sidebar-nav" id="ctl00_lstSideBar">
+       <li class="active">
+        <a href="StudentTtable10.aspx?r=%23CU.ESTU.STUDENT&amp;f=%23CU.EST.TIMETBL.WEB">
+         Student Timetable and Class Registration
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="span10" id="ctl00_divMainContents">
+      <div class="page-header">
+       <h1 id="ctl00_h1PageTitle">
+        My Classes
+       </h1>
+      </div>
+      <div class="cssProgressIndicator cssTranslucent" id="ctl00_Content_ctlProgressIndicator">
+       <div class="cssDisplayNone" id="ctl00_Content_pnlContainer">
+        <div class="cssProgressMsg" id="ctl00_Content_pnlContent">
+         <span id="ctl00_Content_lblMsg">
+          Loading...
+         </span>
+        </div>
+       </div>
+       <div class="cssProgressContainer cssDisplayNone" id="ctl00_Content_pnlPreload">
+       </div>
+      </div>
+      <div class="alert alert-info" id="divInstruct">
+       <b>
+        To register for classes:
+       </b>
+       <ol>
+        <li>
+         It is recommended you first
+         <a href="http://oasis.curtin.edu.au/help/student/planyourtimetable.cfm" target="_blank">
+          Plan Your Timetable
+         </a>
+         to determine which classes you would like to register for.
+        </li>
+        <li>
+         <b>
+          <i>
+           If you enrolled in your unit(s) via eStudent:
+          </i>
+         </b>
+        </li>
+       </ol>
+      </div>
+     </div>
+    </div>
+   </div>
+  </form>
+ </body>
+</html>
+You will have been automatically registered in classes where there is only one day/time option.
+<li>
+ <b>
+  <i>
+   If a Curtin staff member enrolled you in your unit(s):
+  </i>
+ </b>
+</li>
+Click
+<b>
+ Register in all activities with a single class.
+</b>
+This will register you in all classes where there is only one day/time option.
+<li>
+ If you still have crosses or exclamation marks next to unit(s), you still have classes to register for. Click
+ <b>
+  Change
+ </b>
+ or
+ <b>
+  Register
+ </b>
+ and all options for the selected unit will display.
+</li>
+<li>
+ To register for a class, click on it (make sure a green plus symbol appears), then click
+ <b>
+  Save
+ </b>
+ .
+</li>
+<li>
+ Repeat Step 5 until all registration statuses display a tick and "All Classes Registered".
+</li>
+<b>
+ Need more help?
+</b>
+View the
+<a href="http://oasis.curtin.edu.au/help/estudent/my_classes.cfm" target="_blank">
+ Student Timetable Help
+</a>
+or
+<a href="http://oasis.curtin.edu.au/help/estudent/demos/class_rego.cfm" target="_blank">
+ View Class Registration Demonstration
+</a>
+.
+<div class="cssTimetablePageBlock" id="ctl00_Content_divFilter">
+ <div id="ctl00_Content_ctlFilter">
+  <div class="cssTtableRoundBorder cssTtableFilterBarMain" id="ctl00_Content_ctlFilter_PnlFilter">
+   <div class="cssTtableFilterBarLeft">
+    <div class="cssTtableFilterBarLeftTop">
+     <div class="cssTtableFilterBarControlPnl">
+      <span id="ctl00_Content_ctlFilter_CboStudyPeriodFilter">
+       <label class="cssTtableLabelAutosize" for="ctl00_Content_ctlFilter_CboStudyPeriodFilter_elbList">
+        Class Registration for
+       </label>
+       <select id="ctl00_Content_ctlFilter_CboStudyPeriodFilter_elbList" name="ctl00$Content$ctlFilter$CboStudyPeriodFilter$elbList" size="1">
+        <option value="0--May 16, 2016">
+         All Years
+        </option>
+        <option value="2016--May 16, 2016">
+         2016 All Semesters
+        </option>
+        <option selected="selected" value="2016-1-May 16, 2016">
+         2016 Semester 1
+        </option>
+        <option value="2016-2-Aug 02, 2016">
+         2016 Semester 2
+        </option>
+       </select>
+      </span>
+      <label class="cssTtableFilterWeekly" for="ctl00_Content_ctlFilter_TxtStartDt" id="ctl00_Content_ctlFilter_LblWeeklyFilter">
+       Week Starting
+      </label>
+      <input class="cssTtableFilterStartDt cssTtableCalendar" id="ctl00_Content_ctlFilter_TxtStartDt" maxlength="11" name="ctl00$Content$ctlFilter$TxtStartDt" size="11" type="text"/>
+      <input id="ctl00_Content_ctlFilter_BtnSearch" name="ctl00$Content$ctlFilter$BtnSearch" title="Refreshes the selection of enrolled components." type="submit" value="Refresh"/>
+     </div>
+    </div>
+    <div class="cssTtableFilterBarBottom" id="ctl00_Content_ctlFilter_PnlFilterBottom">
+     <span id="ctl00_Content_ctlFilter_LblSearchSummary">
+      There are no classes from any units available for registration.
+     </span>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+<div class="cssTimetablePageBlock" id="ctl00_Content_divTimetable">
+ <div id="ctl00_Content_ctlBlockGroupNav">
+ </div>
+ <div id="ctl00_Content_ctlNav">
+  <div class="cssTtableNavHdr cssNavItemContainer" id="ctl00_Content_ctlNav_PnlNavHdr">
+   <div class="cssTtableNavHdrComp">
+    <span id="ctl00_Content_ctlNav_LblHdrComp">
+     Unit
+    </span>
+   </div>
+   <div class="cssTtableNavHdrReq">
+    <span id="ctl00_Content_ctlNav_LblHdrReq">
+     Study Requirements
+    </span>
+   </div>
+   <div class="cssTtableNavHdrReqStts">
+    <span id="ctl00_Content_ctlNav_LblHdrRegStts">
+     Registration Status
+    </span>
+   </div>
+   <div class="cssTtableNavHdrExpandAllComp">
+    <input alt="Expand" border="0" class="cssTtableExpandCollapseAll" id="ctl00_Content_ctlNav_ImgBtnBlockGroupMoreExpandNode" name="ctl00$Content$ctlNav$ImgBtnBlockGroupMoreExpandNode" src="../App_Themes/CU_eStudent_m/img/timetable/bullet_toggle_plus.png" title="Expand" type="image"/>
+    <input alt="Collapse" border="0" class="cssTtableExpandCollapseAllNode cssDisplayNone" id="ctl00_Content_ctlNav_ImgBtnBlockGroupMoreCollapseNode" name="ctl00$Content$ctlNav$ImgBtnBlockGroupMoreCollapseNode" src="../App_Themes/CU_eStudent_m/img/timetable/bullet_toggle_minus.png" title="Collapse" type="image"/>
+    <a class="cssTtableExpandCollapseAll" href="javascript:__doPostBack('ctl00$Content$ctlNav$LbnExpandAllLink','')" id="ctl00_Content_ctlNav_LbnExpandAllLink">
+     Expand All
+    </a>
+    <a class="cssTtableExpandCollapseAll cssDisplayNone" href="javascript:__doPostBack('ctl00$Content$ctlNav$LbnCollapseAllLink','')" id="ctl00_Content_ctlNav_LbnCollapseAllLink">
+     Collapse All
+    </a>
+    <input id="ctl00_Content_ctlNav_HiddenExpandAll" name="ctl00$Content$ctlNav$HiddenExpandAll" type="hidden" value="False"/>
+   </div>
+  </div>
+  <div class="cssNavItemContainer" id="ctl00_Content_ctlNav_ctl04">
+   <div id="ctl00_Content_ctlNav_18061676">
+    <div class="cssTtableSspNavContainer" id="ctl00_Content_ctlNav_18061676_PnlNavItemMain">
+     <div class="cssTtableSspNavMasterContainer" id="ctl00_Content_ctlNav_18061676_PnlSspNavMasterContainer">
+      <table border="0">
+       <tr>
+        <td class="cssTtableSspNavMasterSpkInfo1">
+         <div class="cssTtableExpandNode" id="ctl00_Content_ctlNav_18061676_PnlExpandNode">
+          <input alt="Expand" border="0" id="ctl00_Content_ctlNav_18061676_ImgBtnExpandNode" name="ctl00$Content$ctlNav$18061676$ImgBtnExpandNode" src="../App_Themes/CU_eStudent_m/img/timetable/bullet_toggle_plus.png" title="Expand" type="image"/>
+          <input alt="Collapse" border="0" id="ctl00_Content_ctlNav_18061676_ImgBtnCollapseNode" name="ctl00$Content$ctlNav$18061676$ImgBtnCollapseNode" src="../App_Themes/CU_eStudent_m/img/timetable/bullet_toggle_minus.png" style="display:none;" title="Collapse" type="image"/>
+          <input id="ctl00_Content_ctlNav_18061676_HiddenClassNavExpand" name="ctl00$Content$ctlNav$18061676$HiddenClassNavExpand" type="hidden" value="False"/>
+         </div>
+        </td>
+        <td class="cssTtableSspNavMasterSpkInfo2" style="min-width:80px;">
+         <div class="cssTtableRoundBorder cssTtableSspColourBlock" id="ctl00_Content_ctlNav_18061676_PnlSspColourBlock" style="background-color:#00CCCC;">
+          <span>
+           BLAW2000
+          </span>
+         </div>
+        </td>
+        <td class="cssTtableSspNavMasterSpkInfo3" style="min-width:180px;">
+         <div>
+          Law for Engineers
+         </div>
+         <div>
+         </div>
+        </td>
+       </tr>
+      </table>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+<td class="cssTtableSspNavMasterActvSmry" style="min-width:200px;">
+ <div>
+  One Weekly 2-Hours Lecture, One Weekly 1-Hours Tutorial
+ </div>
+</td>
+<td class="cssTtableSspNavMasterActvSttsInd" style="min-width:30px;">
+ <img border="0" id="ctl00_Content_ctlNav_18061676_ImgSttsIndicatorGreen" src="../App_Themes/CU_eStudent_m/img/timetable/0GreenLight.png" title="All Classes Registered"/>
+</td>
+<td class="cssTtableSspNavMasterRegSttsSmry" style="min-width:200px;">
+ <div>
+  All Classes Registered
+ </div>
+</td>
+<td class="cssTtableSspNavMasterAction">
+ <span id="ctl00_Content_ctlNav_18061676_LblRegActionMsg">
+  Registration Closed
+ </span>
+</td>
+<div class="cssTtableSspNavDetailsContainer" id="ctl00_Content_ctlNav_18061676_PnlSspNavDetailsContainer" style="display:none;">
+ <div class="cssTtableSspNavDetailsContainerPanel">
+  <div>
+   <table border="0" cellpadding="0" cellspacing="0" class="cssTtableSspNavActvGrid" id="ctl00_Content_ctlNav_18061676_GrdActvDetails">
+    <tr>
+     <th class="cssTtableSspNavTreeNodeI" scope="col">
+     </th>
+     <th scope="col">
+      <div class="cssTtableSspNavItemHdrMain">
+       <div class="cssTtableNavItemHdrActvType">
+        <span id="ctl00_Content_ctlNav_18061676_GrdActvDetails_ctl01_LblHdrActvType">
+         Activity Type
+        </span>
+       </div>
+       <div class="cssTtableNavItemHdrActvStts">
+        <span id="ctl00_Content_ctlNav_18061676_GrdActvDetails_ctl01_LblHdrActvStts">
+         Activity Status
+        </span>
+       </div>
+       <div class="cssTtableNavItemHdrActvInfo">
+        <span id="ctl00_Content_ctlNav_18061676_GrdActvDetails_ctl01_LblHdrActvInfo">
+         Activity Information
+        </span>
+       </div>
+      </div>
+     </th>
+    </tr>
+    <tr>
+     <td class="cssTtableSspNavTreeNodeT">
+     </td>
+     <td class="cssTtableSspNavActvMain">
+      <div class="cssTtableNavActvMain">
+       <div class="cssTtableNavActvTop" id="ctl00_Content_ctlNav_18061676_GrdActvDetails_ctl02_PnlNavActvTop">
+        <div class="cssTtableSspNavActvNm">
+         Lecture
+        </div>
+        <div class="cssTtableSspNavContent" id="ctl00_Content_ctlNav_18061676_GrdActvDetails_ctl02_PnlContent" style="min-width:80px;">
+         <input class="cssHiddenClsGroupId" id="ctl00_Content_ctlNav_18061676_GrdActvDetails_ctl02_HiddenActvSel" name="ctl00$Content$ctlNav$18061676$GrdActvDetails$ctl02$HiddenActvSel" type="hidden" value="18061676-609377-1"/>
+         <div class="cssTtableNavMainText">
+          <div class="cssTtableSspNavIconTray" id="ctl00_Content_ctlNav_18061676_GrdActvDetails_ctl02_PnlIconTray">
+           <img border="0" class="cssTtableIconReg" id="ctl00_Content_ctlNav_18061676_GrdActvDetails_ctl02_0" src="../App_Themes/CU_eStudent_m/img/timetable/orb_ok-sml.png" title="Registered Class"/>
+          </div>
+          <div class="cssTtableSspNavDiv">
+           <span class="cssTtableNavMainRegStts">
+            Registered
+           </span>
+           <span class="cssTtableNavMainWhat">
+            Class 1
+           </span>
+           <span class="cssTtableNavMainWhen">
+            <span class="cssTtableNavMainLabel">
+             Time:
+            </span>
+            <span class="cssTtableNavMainContent">
+             Monday 4:00 pm-6:00 pm
+            </span>
+           </span>
+           <span class="cssTtableNavMainWhere">
+            <span class="cssTtableNavMainLabel">
+             Location:
+            </span>
+            <span class="cssTtableNavMainContent">
+             Bentley Campus 213 104
+            </span>
+           </span>
+          </div>
+         </div>
+         <div class="cssTtableNavMainTextAction" style="display:none;">
+         </div>
+        </div>
+        <div style="clear:both;">
+        </div>
+       </div>
+      </div>
+     </td>
+    </tr>
+    <tr>
+     <td class="cssTtableSspNavTreeNodeL">
+     </td>
+     <td class="cssTtableSspNavActvMain">
+      <div class="cssTtableNavActvMain">
+       <div class="cssTtableNavActvTop" id="ctl00_Content_ctlNav_18061676_GrdActvDetails_ctl03_PnlNavActvTop">
+        <div class="cssTtableSspNavActvNm">
+         Tutorial
+        </div>
+        <div class="cssTtableSspNavContent" id="ctl00_Content_ctlNav_18061676_GrdActvDetails_ctl03_PnlContent" style="min-width:80px;">
+         <input class="cssHiddenClsGroupId" id="ctl00_Content_ctlNav_18061676_GrdActvDetails_ctl03_HiddenActvSel" name="ctl00$Content$ctlNav$18061676$GrdActvDetails$ctl03$HiddenActvSel" type="hidden" value="18061676-609377-2"/>
+         <div class="cssTtableNavMainText">
+          <div class="cssTtableSspNavIconTray" id="ctl00_Content_ctlNav_18061676_GrdActvDetails_ctl03_PnlIconTray">
+           <img border="0" class="cssTtableIconReg" id="ctl00_Content_ctlNav_18061676_GrdActvDetails_ctl03_0" src="../App_Themes/CU_eStudent_m/img/timetable/orb_ok-sml.png" title="Registered Class"/>
+           <img border="0" class="cssTtableIconSwap" id="ctl00_Content_ctlNav_18061676_GrdActvDetails_ctl03_1" src="../App_Themes/CU_eStudent_m/img/timetable/Button-Refresh-24x24.png" title="Swappable Class"/>
+          </div>
+          <div class="cssTtableSspNavDiv">
+           <span class="cssTtableNavMainRegStts">
+            Registered
+           </span>
+           <span class="cssTtableNavMainWhat">
+            Class 4
+           </span>
+           <span class="cssTtableNavMainWhen">
+            <span class="cssTtableNavMainLabel">
+             Time:
+            </span>
+            <span class="cssTtableNavMainContent">
+             Tuesday 12:00 pm-1:00 pm
+            </span>
+           </span>
+           <span class="cssTtableNavMainWhere">
+            <span class="cssTtableNavMainLabel">
+             Location:
+            </span>
+            <span class="cssTtableNavMainContent">
+             Bentley Campus 216 206
+            </span>
+           </span>
+          </div>
+         </div>
+         <div class="cssTtableNavMainTextAction" style="display:none;">
+         </div>
+        </div>
+        <div style="clear:both;">
+        </div>
+       </div>
+      </div>
+     </td>
+    </tr>
+   </table>
+  </div>
+ </div>
+</div>
+<div id="ctl00_Content_ctlNav_18073409">
+ <div class="cssTtableSspNavContainer" id="ctl00_Content_ctlNav_18073409_PnlNavItemMain">
+  <div class="cssTtableSspNavMasterContainer" id="ctl00_Content_ctlNav_18073409_PnlSspNavMasterContainer">
+   <table border="0">
+    <tr>
+     <td class="cssTtableSspNavMasterSpkInfo1">
+      <div class="cssTtableExpandNode" id="ctl00_Content_ctlNav_18073409_PnlExpandNode">
+       <input alt="Expand" border="0" id="ctl00_Content_ctlNav_18073409_ImgBtnExpandNode" name="ctl00$Content$ctlNav$18073409$ImgBtnExpandNode" src="../App_Themes/CU_eStudent_m/img/timetable/bullet_toggle_plus.png" title="Expand" type="image"/>
+       <input alt="Collapse" border="0" id="ctl00_Content_ctlNav_18073409_ImgBtnCollapseNode" name="ctl00$Content$ctlNav$18073409$ImgBtnCollapseNode" src="../App_Themes/CU_eStudent_m/img/timetable/bullet_toggle_minus.png" style="display:none;" title="Collapse" type="image"/>
+       <input id="ctl00_Content_ctlNav_18073409_HiddenClassNavExpand" name="ctl00$Content$ctlNav$18073409$HiddenClassNavExpand" type="hidden" value="False"/>
+      </div>
+     </td>
+     <td class="cssTtableSspNavMasterSpkInfo2" style="min-width:80px;">
+      <div class="cssTtableRoundBorder cssTtableSspColourBlock" id="ctl00_Content_ctlNav_18073409_PnlSspColourBlock" style="background-color:#CCCCFF;">
+       <span>
+        ENEN2000
+       </span>
+      </div>
+     </td>
+     <td class="cssTtableSspNavMasterSpkInfo3" style="min-width:180px;">
+      <div>
+       Engineering Sustainable Development
+      </div>
+      <div>
+      </div>
+     </td>
+    </tr>
+   </table>
+  </div>
+ </div>
+</div>
+<td class="cssTtableSspNavMasterActvSmry" style="min-width:200px;">
+ <div>
+  One Weekly 2-Hours Lecture, One Weekly 1-Hours Tutorial
+ </div>
+</td>
+<td class="cssTtableSspNavMasterActvSttsInd" style="min-width:30px;">
+ <img border="0" id="ctl00_Content_ctlNav_18073409_ImgSttsIndicatorGreen" src="../App_Themes/CU_eStudent_m/img/timetable/0GreenLight.png" title="All Classes Registered"/>
+</td>
+<td class="cssTtableSspNavMasterRegSttsSmry" style="min-width:200px;">
+ <div>
+  All Classes Registered
+ </div>
+</td>
+<td class="cssTtableSspNavMasterAction">
+ <span id="ctl00_Content_ctlNav_18073409_LblRegActionMsg">
+  Registration Closed
+ </span>
+</td>
+<div class="cssTtableSspNavDetailsContainer" id="ctl00_Content_ctlNav_18073409_PnlSspNavDetailsContainer" style="display:none;">
+ <div class="cssTtableSspNavDetailsContainerPanel">
+  <div>
+   <table border="0" cellpadding="0" cellspacing="0" class="cssTtableSspNavActvGrid" id="ctl00_Content_ctlNav_18073409_GrdActvDetails">
+    <tr>
+     <th class="cssTtableSspNavTreeNodeI" scope="col">
+     </th>
+     <th scope="col">
+      <div class="cssTtableSspNavItemHdrMain">
+       <div class="cssTtableNavItemHdrActvType">
+        <span id="ctl00_Content_ctlNav_18073409_GrdActvDetails_ctl01_LblHdrActvType">
+         Activity Type
+        </span>
+       </div>
+       <div class="cssTtableNavItemHdrActvStts">
+        <span id="ctl00_Content_ctlNav_18073409_GrdActvDetails_ctl01_LblHdrActvStts">
+         Activity Status
+        </span>
+       </div>
+       <div class="cssTtableNavItemHdrActvInfo">
+        <span id="ctl00_Content_ctlNav_18073409_GrdActvDetails_ctl01_LblHdrActvInfo">
+         Activity Information
+        </span>
+       </div>
+      </div>
+     </th>
+    </tr>
+    <tr>
+     <td class="cssTtableSspNavTreeNodeT">
+     </td>
+     <td class="cssTtableSspNavActvMain">
+      <div class="cssTtableNavActvMain">
+       <div class="cssTtableNavActvTop" id="ctl00_Content_ctlNav_18073409_GrdActvDetails_ctl02_PnlNavActvTop">
+        <div class="cssTtableSspNavActvNm">
+         Lecture
+        </div>
+        <div class="cssTtableSspNavContent" id="ctl00_Content_ctlNav_18073409_GrdActvDetails_ctl02_PnlContent" style="min-width:80px;">
+         <input class="cssHiddenClsGroupId" id="ctl00_Content_ctlNav_18073409_GrdActvDetails_ctl02_HiddenActvSel" name="ctl00$Content$ctlNav$18073409$GrdActvDetails$ctl02$HiddenActvSel" type="hidden" value="18073409-609373-1"/>
+         <div class="cssTtableNavMainText">
+          <div class="cssTtableSspNavIconTray" id="ctl00_Content_ctlNav_18073409_GrdActvDetails_ctl02_PnlIconTray">
+           <img border="0" class="cssTtableIconReg" id="ctl00_Content_ctlNav_18073409_GrdActvDetails_ctl02_0" src="../App_Themes/CU_eStudent_m/img/timetable/orb_ok-sml.png" title="Registered Class"/>
+          </div>
+          <div class="cssTtableSspNavDiv">
+           <span class="cssTtableNavMainRegStts">
+            Registered
+           </span>
+           <span class="cssTtableNavMainWhat">
+            Class 1
+           </span>
+           <span class="cssTtableNavMainWhen">
+            <span class="cssTtableNavMainLabel">
+             Time:
+            </span>
+            <span class="cssTtableNavMainContent">
+             Tuesday 1:00 pm-3:00 pm
+            </span>
+           </span>
+           <span class="cssTtableNavMainWhere">
+            <span class="cssTtableNavMainLabel">
+             Location:
+            </span>
+            <span class="cssTtableNavMainContent">
+             Bentley Campus 405 201
+            </span>
+           </span>
+          </div>
+         </div>
+         <div class="cssTtableNavMainTextAction" style="display:none;">
+         </div>
+        </div>
+        <div style="clear:both;">
+        </div>
+       </div>
+      </div>
+     </td>
+    </tr>
+    <tr>
+     <td class="cssTtableSspNavTreeNodeL">
+     </td>
+     <td class="cssTtableSspNavActvMain">
+      <div class="cssTtableNavActvMain">
+       <div class="cssTtableNavActvTop" id="ctl00_Content_ctlNav_18073409_GrdActvDetails_ctl03_PnlNavActvTop">
+        <div class="cssTtableSspNavActvNm">
+         Tutorial
+        </div>
+        <div class="cssTtableSspNavContent" id="ctl00_Content_ctlNav_18073409_GrdActvDetails_ctl03_PnlContent" style="min-width:80px;">
+         <input class="cssHiddenClsGroupId" id="ctl00_Content_ctlNav_18073409_GrdActvDetails_ctl03_HiddenActvSel" name="ctl00$Content$ctlNav$18073409$GrdActvDetails$ctl03$HiddenActvSel" type="hidden" value="18073409-609373-2"/>
+         <div class="cssTtableNavMainText">
+          <div class="cssTtableSspNavIconTray" id="ctl00_Content_ctlNav_18073409_GrdActvDetails_ctl03_PnlIconTray">
+           <img border="0" class="cssTtableIconReg" id="ctl00_Content_ctlNav_18073409_GrdActvDetails_ctl03_0" src="../App_Themes/CU_eStudent_m/img/timetable/orb_ok-sml.png" title="Registered Class"/>
+           <img border="0" class="cssTtableIconSwap" id="ctl00_Content_ctlNav_18073409_GrdActvDetails_ctl03_1" src="../App_Themes/CU_eStudent_m/img/timetable/Button-Refresh-24x24.png" title="Swappable Class"/>
+          </div>
+          <div class="cssTtableSspNavDiv">
+           <span class="cssTtableNavMainRegStts">
+            Registered
+           </span>
+           <span class="cssTtableNavMainWhat">
+            Class 5
+           </span>
+           <span class="cssTtableNavMainWhen">
+            <span class="cssTtableNavMainLabel">
+             Time:
+            </span>
+            <span class="cssTtableNavMainContent">
+             Thursday 4:00 pm-5:00 pm
+            </span>
+           </span>
+           <span class="cssTtableNavMainWhere">
+            <span class="cssTtableNavMainLabel">
+             Location:
+            </span>
+            <span class="cssTtableNavMainContent">
+             Bentley Campus 201 708B
+            </span>
+           </span>
+          </div>
+         </div>
+         <div class="cssTtableNavMainTextAction" style="display:none;">
+         </div>
+        </div>
+        <div style="clear:both;">
+        </div>
+       </div>
+       <div class="cssTtableNavActvBottom" id="ctl00_Content_ctlNav_18073409_GrdActvDetails_ctl03_PnlNavActvBottom">
+        <div class="cssTtableSspNavPanelHeader cssTtableSspNavPanelMoreHighlight" id="ctl00_Content_ctlNav_18073409_GrdActvDetails_ctl03_PnlHeader">
+         <input alt="Expand" border="0" id="ctl00_Content_ctlNav_18073409_GrdActvDetails_ctl03_ImgBtnExpandNode" name="ctl00$Content$ctlNav$18073409$GrdActvDetails$ctl03$ImgBtnExpandNode" src="../App_Themes/CU_eStudent_m/img/timetable/bullet_toggle_plus.png" style="display:none;" title="Expand" type="image"/>
+         <input alt="Collapse" border="0" id="ctl00_Content_ctlNav_18073409_GrdActvDetails_ctl03_ImgBtnCollapseNode" name="ctl00$Content$ctlNav$18073409$GrdActvDetails$ctl03$ImgBtnCollapseNode" src="../App_Themes/CU_eStudent_m/img/timetable/bullet_toggle_minus.png" title="Collapse" type="image"/>
+         <a class="cssTtableSspNavPanelMoreLink" href="javascript:__doPostBack('ctl00$Content$ctlNav$18073409$GrdActvDetails$ctl03$LbnMoreInfo','')" id="ctl00_Content_ctlNav_18073409_GrdActvDetails_ctl03_LbnMoreInfo">
+          More Info
+         </a>
+         <input id="ctl00_Content_ctlNav_18073409_GrdActvDetails_ctl03_HiddenExpandMoreInfo" name="ctl00$Content$ctlNav$18073409$GrdActvDetails$ctl03$HiddenExpandMoreInfo" type="hidden" value="True"/>
+        </div>
+        <div class="cssTtableSspNavPanelBody cssTtableSspNavPanelMoreHighlight" id="ctl00_Content_ctlNav_18073409_GrdActvDetails_ctl03_PnlBody">
+         <div class="cssTtableActvCmts" id="ctl00_Content_ctlNav_18073409_GrdActvDetails_ctl03_PnlActvCmts">
+          <span class="cssTtableAdditInfoHdr" id="ctl00_Content_ctlNav_18073409_GrdActvDetails_ctl03_LblActvCmtsHeader">
+           Activity Comments
+          </span>
+          <span class="cssTtableAdditInfoTxt" id="ctl00_Content_ctlNav_18073409_GrdActvDetails_ctl03_LblActvCmtsText">
+           Class registration for 2016 is currently closed and will reopened by Friday 11th December 2015.
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+     </td>
+    </tr>
+   </table>
+  </div>
+ </div>
+</div>
+<div id="ctl00_Content_divActionTop">
+ <div class="cssTtableActionBarTop" id="ctl00_Content_ctlActionBarTop">
+  <div class="cssTtableActBarActionPnl" id="ctl00_Content_ctlActionBarTop_0">
+   <input class="cssTtableActBarBtnPrint" id="ctl00_Content_ctlActionBarTop_Print" name="ctl00$Content$ctlActionBarTop$Print" title="Show me a printer friendly version of the current view." type="submit" value="Print"/>
+  </div>
+  <div class="cssTtableActBarTitlePnl" id="ctl00_Content_ctlActionBarTop_1">
+   My Timetable
+  </div>
+ </div>
+</div>
+<div class="cssTtableContainer" id="ctl00_Content_ctlTimetableMain" timetablecontrollerid="ctlTimetableSettings">
+ <div class="cssContainerOffset" id="ctl00_Content_ctlTimetableMain_ContainerOffset" style="margin-left:205px;">
+  <div class="cssTtableFlexiExtContainer" id="ctl00_Content_ctlTimetableMain_FlexiExt">
+   <div class="cssTtableFlexiExtPanel cssTtableFlexiExtPanelLegend" id="ctl00_Content_ctlTimetableMain_FlexiExt_TtableFlexiExtPanel_Legend">
+    <div class="cssTtableFlexiExtPanelTab" id="ctl00_Content_ctlTimetableMain_FlexiExt_TtableFlexiExtPanel_Legend_TtableFlexiExtPanelTab">
+     <input border="0" class="cssHiddenFlexiExtPanel_Img" id="ctl00_Content_ctlTimetableMain_FlexiExt_TtableFlexiExtPanel_Legend_TtableFlexiExtPanelTabImg1" name="ctl00$Content$ctlTimetableMain$FlexiExt$TtableFlexiExtPanel_Legend$TtableFlexiExtPanelTabImg1" src="../App_Themes/CU_eStudent_m/img/timetable/icoRight.png" type="image"/>
+     <input alt="Legend" border="0" id="ctl00_Content_ctlTimetableMain_FlexiExt_TtableFlexiExtPanel_Legend_TtableFlexiExtPanelTabLegendHdr" name="ctl00$Content$ctlTimetableMain$FlexiExt$TtableFlexiExtPanel_Legend$TtableFlexiExtPanelTabLegendHdr" src="../App_Themes/CU_eStudent_m/img/timetable/legendHdr.png" type="image"/>
+     <input class="cssHiddenFlexiExtPanel_Open" name="ctl00$Content$ctlTimetableMain$FlexiExt$TtableFlexiExtPanel_Legend$ctl00" type="hidden" value="True"/>
+     <input class="cssHiddenFlexiExtPanelTabImgAlt" name="ctl00$Content$ctlTimetableMain$FlexiExt$TtableFlexiExtPanel_Legend$ctl01" type="hidden" value="/eStudent/App_Themes/CU_eStudent_m/img/timetable/icoLeft.png"/>
+    </div>
+    <div class="cssTtableFlexiExtPanelBody" id="ctl00_Content_ctlTimetableMain_FlexiExt_TtableFlexiExtPanel_Legend_TtableFlexiExtPanelBody">
+     <div id="ctl00_Content_ctlTimetableMain_FlexiExt_TtableFlexiExtPanel_Legend_Legend-0">
+      <div id="ctl00_Content_ctlTimetableMain_FlexiExt_TtableFlexiExtPanel_Legend_Legend-0-0">
+       <img border="0" class="cssTtableIconReg" id="ctl00_Content_ctlTimetableMain_FlexiExt_TtableFlexiExtPanel_Legend_Legend-0-00" src="../App_Themes/CU_eStudent_m/img/timetable/orb_ok-sml.png" title="Registered Class"/>
+       Registered Class
+      </div>
+      <div id="ctl00_Content_ctlTimetableMain_FlexiExt_TtableFlexiExtPanel_Legend_Legend-0-1">
+       <img border="0" class="cssTtableIconSwap" id="ctl00_Content_ctlTimetableMain_FlexiExt_TtableFlexiExtPanel_Legend_Legend-0-10" src="../App_Themes/CU_eStudent_m/img/timetable/Button-Refresh-24x24.png" title="Swappable Class"/>
+       Swappable Class
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="cssTtableTimelineContainer" id="ctl00_Content_ctlTimetableMain_TimelineContainer" style="margin-top:20px;height:550px;">
+   <div class="cssTtbleColContainer cssTtbleColTimeline" id="ctl00_Content_ctlTimetableMain_Timeline">
+    <div class="cssTtbleColHeader" id="ctl00_Content_ctlTimetableMain_Timeline_Header">
+     <div class="cssTtbleColHeaderInner">
+     </div>
+    </div>
+    <div class="cssTtbleColBody" id="ctl00_Content_ctlTimetableMain_Timeline_Body">
+     <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+      <div class="cssTtbleColBodyCellInner">
+       <span>
+        8 am
+       </span>
+      </div>
+     </div>
+     <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+      <div class="cssTtbleColBodyCellInner">
+      </div>
+     </div>
+     <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+      <div class="cssTtbleColBodyCellInner">
+       <span>
+        9:00
+       </span>
+      </div>
+     </div>
+     <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+      <div class="cssTtbleColBodyCellInner">
+      </div>
+     </div>
+     <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+      <div class="cssTtbleColBodyCellInner">
+       <span>
+        10:00
+       </span>
+      </div>
+     </div>
+     <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+      <div class="cssTtbleColBodyCellInner">
+      </div>
+     </div>
+     <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+      <div class="cssTtbleColBodyCellInner">
+       <span>
+        11:00
+       </span>
+      </div>
+     </div>
+     <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+      <div class="cssTtbleColBodyCellInner">
+      </div>
+     </div>
+     <div class="cssTtbleColBodyCell cssTtableSlotMidDay">
+      <div class="cssTtbleColBodyCellInner">
+       <span>
+        12 pm
+       </span>
+      </div>
+     </div>
+     <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+      <div class="cssTtbleColBodyCellInner">
+      </div>
+     </div>
+     <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+      <div class="cssTtbleColBodyCellInner">
+       <span>
+        1:00
+       </span>
+      </div>
+     </div>
+     <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+      <div class="cssTtbleColBodyCellInner">
+      </div>
+     </div>
+     <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+      <div class="cssTtbleColBodyCellInner">
+       <span>
+        2:00
+       </span>
+      </div>
+     </div>
+     <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+      <div class="cssTtbleColBodyCellInner">
+      </div>
+     </div>
+     <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+      <div class="cssTtbleColBodyCellInner">
+       <span>
+        3:00
+       </span>
+      </div>
+     </div>
+     <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+      <div class="cssTtbleColBodyCellInner">
+      </div>
+     </div>
+     <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+      <div class="cssTtbleColBodyCellInner">
+       <span>
+        4:00
+       </span>
+      </div>
+     </div>
+     <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+      <div class="cssTtbleColBodyCellInner">
+      </div>
+     </div>
+     <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+      <div class="cssTtbleColBodyCellInner">
+       <span>
+        5:00
+       </span>
+      </div>
+     </div>
+     <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+      <div class="cssTtbleColBodyCellInner">
+      </div>
+     </div>
+     <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+      <div class="cssTtbleColBodyCellInner">
+       <span>
+        6:00
+       </span>
+      </div>
+     </div>
+     <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+      <div class="cssTtbleColBodyCellInner">
+      </div>
+     </div>
+     <div class="cssTtableFloatInfoContainer" style="display:none;">
+      <div class="cssTtableFloatInfoHeader">
+      </div>
+      <div class="cssTtableFloatInfoBody">
+      </div>
+      <div class="cssTtableFloatInfoFooter">
+      </div>
+     </div>
+    </div>
+    <input class="cssHiddenDayWidth" id="ctl00_Content_ctlTimetableMain_Timeline_hdnDayWidth" name="ctl00$Content$ctlTimetableMain$Timeline$hdnDayWidth" type="hidden" value="80"/>
+   </div>
+  </div>
+  <div class="cssTtableDayContainer" id="ctl00_Content_ctlTimetableMain_DayContainer">
+   <div class="cssTtableDayContainerPanel" id="ctl00_Content_ctlTimetableMain_DayContainerPanel">
+    <div class="cssTtableDayGroup" id="ctl00_Content_ctlTimetableMain_DayGrp" style="margin-top:20px;width:400px;height:550px;">
+     <div class="cssTtbleColContainer cssTtbleColDay" id="ctl00_Content_ctlTimetableMain_MonDayCol">
+      <div class="cssTtbleColHeader" id="ctl00_Content_ctlTimetableMain_MonDayCol_Header">
+       <div class="cssTtbleColHeaderInner">
+        <span>
+         Monday
+        </span>
+       </div>
+      </div>
+      <div class="cssTtbleColBody" id="ctl00_Content_ctlTimetableMain_MonDayCol_Body">
+       <div class="cssClassContainer" id="ctl00_Content_ctlTimetableMain_MonDayCol_Body_0">
+        <div class="cssClassInnerContainer" id="ctl00_Content_ctlTimetableMain_MonDayCol_Body_0_ClassInnerContainer" style="background-color:#00CCCC;border-color:#00CCCC;">
+         <div class="cssClassInnerPanel" id="ctl00_Content_ctlTimetableMain_MonDayCol_Body_0_ClassInnerPanel">
+          <input class="cssHiddenStartTm" id="ctl00_Content_ctlTimetableMain_MonDayCol_Body_0_HiddenStartTm" name="ctl00$Content$ctlTimetableMain$MonDayCol$Body$0$HiddenStartTm" type="hidden" value="4:00pm"/>
+          <input class="cssHiddenEndTm" id="ctl00_Content_ctlTimetableMain_MonDayCol_Body_0_HiddenEndTm" name="ctl00$Content$ctlTimetableMain$MonDayCol$Body$0$HiddenEndTm" type="hidden" value="6:00pm"/>
+          <div class="cssTtableBodyPanel" id="ctl00_Content_ctlTimetableMain_MonDayCol_Body_0_BodyPanel">
+           <div class="cssTtableBodyContentPanel" id="ctl00_Content_ctlTimetableMain_MonDayCol_Body_0_BodyContentPanel">
+            <br/>
+            <span class="cssTtableClsSlotWhat">
+             Lecture (1)
+            </span>
+            <span class="cssTtableClsSlotWhen">
+             , 4:00 pm-6:00 pm
+            </span>
+            <span class="cssTtableClsSlotWhere">
+             213 104
+            </span>
+           </div>
+          </div>
+          <div class="cssTtableIconPanel" id="ctl00_Content_ctlTimetableMain_MonDayCol_Body_0_IconPanel">
+           <img border="0" class="cssTtableIconReg" id="ctl00_Content_ctlTimetableMain_MonDayCol_Body_0_IconPanel-0" src="../App_Themes/CU_eStudent_m/img/timetable/orb_ok-sml.png" title="Registered Class"/>
+          </div>
+          <div class="cssTtableFooterPanel" id="ctl00_Content_ctlTimetableMain_MonDayCol_Body_0_FooterPanel">
+          </div>
+          <div class="cssTtableHeaderPanel" id="ctl00_Content_ctlTimetableMain_MonDayCol_Body_0_HeaderPanel">
+           BLAW2000
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtableSlotMidDay">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtableFloatInfoContainer" style="display:none;">
+        <div class="cssTtableFloatInfoHeader">
+        </div>
+        <div class="cssTtableFloatInfoBody">
+        </div>
+        <div class="cssTtableFloatInfoFooter">
+        </div>
+       </div>
+      </div>
+      <input class="cssHiddenDayWidth" id="ctl00_Content_ctlTimetableMain_MonDayCol_hdnDayWidth" name="ctl00$Content$ctlTimetableMain$MonDayCol$hdnDayWidth" type="hidden" value="80"/>
+     </div>
+     <div class="cssTtbleColContainer cssTtbleColDay" id="ctl00_Content_ctlTimetableMain_TueDayCol">
+      <div class="cssTtbleColHeader" id="ctl00_Content_ctlTimetableMain_TueDayCol_Header">
+       <div class="cssTtbleColHeaderInner">
+        <span>
+         Tuesday
+        </span>
+       </div>
+      </div>
+      <div class="cssTtbleColBody" id="ctl00_Content_ctlTimetableMain_TueDayCol_Body">
+       <div class="cssClassContainer" id="ctl00_Content_ctlTimetableMain_TueDayCol_Body_0">
+        <div class="cssClassInnerContainer" id="ctl00_Content_ctlTimetableMain_TueDayCol_Body_0_ClassInnerContainer" style="background-color:#CCCCFF;border-color:#CCCCFF;">
+         <div class="cssClassInnerPanel" id="ctl00_Content_ctlTimetableMain_TueDayCol_Body_0_ClassInnerPanel">
+          <input class="cssHiddenStartTm" id="ctl00_Content_ctlTimetableMain_TueDayCol_Body_0_HiddenStartTm" name="ctl00$Content$ctlTimetableMain$TueDayCol$Body$0$HiddenStartTm" type="hidden" value="1:00pm"/>
+          <input class="cssHiddenEndTm" id="ctl00_Content_ctlTimetableMain_TueDayCol_Body_0_HiddenEndTm" name="ctl00$Content$ctlTimetableMain$TueDayCol$Body$0$HiddenEndTm" type="hidden" value="3:00pm"/>
+          <div class="cssTtableBodyPanel" id="ctl00_Content_ctlTimetableMain_TueDayCol_Body_0_BodyPanel">
+           <div class="cssTtableBodyContentPanel" id="ctl00_Content_ctlTimetableMain_TueDayCol_Body_0_BodyContentPanel">
+            <br/>
+            <span class="cssTtableClsSlotWhat">
+             Lecture (1)
+            </span>
+            <span class="cssTtableClsSlotWhen">
+             , 1:00 pm-3:00 pm
+            </span>
+            <span class="cssTtableClsSlotWhere">
+             405 201
+            </span>
+           </div>
+          </div>
+          <div class="cssTtableIconPanel" id="ctl00_Content_ctlTimetableMain_TueDayCol_Body_0_IconPanel">
+           <img border="0" class="cssTtableIconReg" id="ctl00_Content_ctlTimetableMain_TueDayCol_Body_0_IconPanel-0" src="../App_Themes/CU_eStudent_m/img/timetable/orb_ok-sml.png" title="Registered Class"/>
+          </div>
+          <div class="cssTtableFooterPanel" id="ctl00_Content_ctlTimetableMain_TueDayCol_Body_0_FooterPanel">
+          </div>
+          <div class="cssTtableHeaderPanel" id="ctl00_Content_ctlTimetableMain_TueDayCol_Body_0_HeaderPanel">
+           ENEN2000
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="cssClassContainer" id="ctl00_Content_ctlTimetableMain_TueDayCol_Body_1">
+        <div class="cssClassInnerContainer" id="ctl00_Content_ctlTimetableMain_TueDayCol_Body_1_ClassInnerContainer" style="background-color:#00CCCC;border-color:#00CCCC;">
+         <div class="cssClassInnerPanel" id="ctl00_Content_ctlTimetableMain_TueDayCol_Body_1_ClassInnerPanel">
+          <input class="cssHiddenStartTm" id="ctl00_Content_ctlTimetableMain_TueDayCol_Body_1_HiddenStartTm" name="ctl00$Content$ctlTimetableMain$TueDayCol$Body$1$HiddenStartTm" type="hidden" value="12:00pm"/>
+          <input class="cssHiddenEndTm" id="ctl00_Content_ctlTimetableMain_TueDayCol_Body_1_HiddenEndTm" name="ctl00$Content$ctlTimetableMain$TueDayCol$Body$1$HiddenEndTm" type="hidden" value="1:00pm"/>
+          <div class="cssTtableBodyPanel" id="ctl00_Content_ctlTimetableMain_TueDayCol_Body_1_BodyPanel">
+           <div class="cssTtableBodyContentPanel" id="ctl00_Content_ctlTimetableMain_TueDayCol_Body_1_BodyContentPanel">
+            <br/>
+            <span class="cssTtableClsSlotWhat">
+             Tutorial (4)
+            </span>
+            <span class="cssTtableClsSlotWhen">
+             , 12:00 pm-1:00 pm
+            </span>
+            <span class="cssTtableClsSlotWhere">
+             216 206
+            </span>
+           </div>
+          </div>
+          <div class="cssTtableIconPanel" id="ctl00_Content_ctlTimetableMain_TueDayCol_Body_1_IconPanel">
+           <img border="0" class="cssTtableIconReg" id="ctl00_Content_ctlTimetableMain_TueDayCol_Body_1_IconPanel-0" src="../App_Themes/CU_eStudent_m/img/timetable/orb_ok-sml.png" title="Registered Class"/>
+           <img border="0" class="cssTtableIconSwap" id="ctl00_Content_ctlTimetableMain_TueDayCol_Body_1_IconPanel-1" src="../App_Themes/CU_eStudent_m/img/timetable/Button-Refresh-24x24.png" title="Swappable Class"/>
+          </div>
+          <div class="cssTtableFooterPanel" id="ctl00_Content_ctlTimetableMain_TueDayCol_Body_1_FooterPanel">
+          </div>
+          <div class="cssTtableHeaderPanel" id="ctl00_Content_ctlTimetableMain_TueDayCol_Body_1_HeaderPanel">
+           BLAW2000
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtableSlotMidDay">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtableFloatInfoContainer" style="display:none;">
+        <div class="cssTtableFloatInfoHeader">
+        </div>
+        <div class="cssTtableFloatInfoBody">
+        </div>
+        <div class="cssTtableFloatInfoFooter">
+        </div>
+       </div>
+      </div>
+      <input class="cssHiddenDayWidth" id="ctl00_Content_ctlTimetableMain_TueDayCol_hdnDayWidth" name="ctl00$Content$ctlTimetableMain$TueDayCol$hdnDayWidth" type="hidden" value="80"/>
+     </div>
+     <div class="cssTtbleColContainer cssTtbleColDay" id="ctl00_Content_ctlTimetableMain_WedDayCol">
+      <div class="cssTtbleColHeader" id="ctl00_Content_ctlTimetableMain_WedDayCol_Header">
+       <div class="cssTtbleColHeaderInner">
+        <span>
+         Wednesday
+        </span>
+       </div>
+      </div>
+      <div class="cssTtbleColBody" id="ctl00_Content_ctlTimetableMain_WedDayCol_Body">
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtableSlotMidDay">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtableFloatInfoContainer" style="display:none;">
+        <div class="cssTtableFloatInfoHeader">
+        </div>
+        <div class="cssTtableFloatInfoBody">
+        </div>
+        <div class="cssTtableFloatInfoFooter">
+        </div>
+       </div>
+      </div>
+      <input class="cssHiddenDayWidth" id="ctl00_Content_ctlTimetableMain_WedDayCol_hdnDayWidth" name="ctl00$Content$ctlTimetableMain$WedDayCol$hdnDayWidth" type="hidden" value="80"/>
+     </div>
+     <div class="cssTtbleColContainer cssTtbleColDay" id="ctl00_Content_ctlTimetableMain_ThuDayCol">
+      <div class="cssTtbleColHeader" id="ctl00_Content_ctlTimetableMain_ThuDayCol_Header">
+       <div class="cssTtbleColHeaderInner">
+        <span>
+         Thursday
+        </span>
+       </div>
+      </div>
+      <div class="cssTtbleColBody" id="ctl00_Content_ctlTimetableMain_ThuDayCol_Body">
+       <div class="cssClassContainer" id="ctl00_Content_ctlTimetableMain_ThuDayCol_Body_0">
+        <div class="cssClassInnerContainer" id="ctl00_Content_ctlTimetableMain_ThuDayCol_Body_0_ClassInnerContainer" style="background-color:#CCCCFF;border-color:#CCCCFF;">
+         <div class="cssClassInnerPanel" id="ctl00_Content_ctlTimetableMain_ThuDayCol_Body_0_ClassInnerPanel">
+          <input class="cssHiddenStartTm" id="ctl00_Content_ctlTimetableMain_ThuDayCol_Body_0_HiddenStartTm" name="ctl00$Content$ctlTimetableMain$ThuDayCol$Body$0$HiddenStartTm" type="hidden" value="4:00pm"/>
+          <input class="cssHiddenEndTm" id="ctl00_Content_ctlTimetableMain_ThuDayCol_Body_0_HiddenEndTm" name="ctl00$Content$ctlTimetableMain$ThuDayCol$Body$0$HiddenEndTm" type="hidden" value="5:00pm"/>
+          <div class="cssTtableBodyPanel" id="ctl00_Content_ctlTimetableMain_ThuDayCol_Body_0_BodyPanel">
+           <div class="cssTtableBodyContentPanel" id="ctl00_Content_ctlTimetableMain_ThuDayCol_Body_0_BodyContentPanel">
+            <br/>
+            <span class="cssTtableClsSlotWhat">
+             Tutorial (5)
+            </span>
+            <span class="cssTtableClsSlotWhen">
+             , 4:00 pm-5:00 pm
+            </span>
+            <span class="cssTtableClsSlotWhere">
+             201 708B
+            </span>
+           </div>
+          </div>
+          <div class="cssTtableIconPanel" id="ctl00_Content_ctlTimetableMain_ThuDayCol_Body_0_IconPanel">
+           <img border="0" class="cssTtableIconReg" id="ctl00_Content_ctlTimetableMain_ThuDayCol_Body_0_IconPanel-0" src="../App_Themes/CU_eStudent_m/img/timetable/orb_ok-sml.png" title="Registered Class"/>
+           <img border="0" class="cssTtableIconSwap" id="ctl00_Content_ctlTimetableMain_ThuDayCol_Body_0_IconPanel-1" src="../App_Themes/CU_eStudent_m/img/timetable/Button-Refresh-24x24.png" title="Swappable Class"/>
+          </div>
+          <div class="cssTtableFooterPanel" id="ctl00_Content_ctlTimetableMain_ThuDayCol_Body_0_FooterPanel">
+          </div>
+          <div class="cssTtableHeaderPanel" id="ctl00_Content_ctlTimetableMain_ThuDayCol_Body_0_HeaderPanel">
+           ENEN2000
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtableSlotMidDay">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtableFloatInfoContainer" style="display:none;">
+        <div class="cssTtableFloatInfoHeader">
+        </div>
+        <div class="cssTtableFloatInfoBody">
+        </div>
+        <div class="cssTtableFloatInfoFooter">
+        </div>
+       </div>
+      </div>
+      <input class="cssHiddenDayWidth" id="ctl00_Content_ctlTimetableMain_ThuDayCol_hdnDayWidth" name="ctl00$Content$ctlTimetableMain$ThuDayCol$hdnDayWidth" type="hidden" value="80"/>
+     </div>
+     <div class="cssTtbleColContainer cssTtbleColDay cssTtbleColDayLast" id="ctl00_Content_ctlTimetableMain_FriDayCol">
+      <div class="cssTtbleColHeader" id="ctl00_Content_ctlTimetableMain_FriDayCol_Header">
+       <div class="cssTtbleColHeaderInner">
+        <span>
+         Friday
+        </span>
+       </div>
+      </div>
+      <div class="cssTtbleColBody" id="ctl00_Content_ctlTimetableMain_FriDayCol_Body">
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtableSlotMidDay">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMajor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtbleColBodyCell cssTtbleSlotMinor">
+        <div class="cssTtbleColBodyCellInner">
+        </div>
+       </div>
+       <div class="cssTtableFloatInfoContainer" style="display:none;">
+        <div class="cssTtableFloatInfoHeader">
+        </div>
+        <div class="cssTtableFloatInfoBody">
+        </div>
+        <div class="cssTtableFloatInfoFooter">
+        </div>
+       </div>
+      </div>
+      <input class="cssHiddenDayWidth" id="ctl00_Content_ctlTimetableMain_FriDayCol_hdnDayWidth" name="ctl00$Content$ctlTimetableMain$FriDayCol$hdnDayWidth" type="hidden" value="80"/>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+ <input class="cssHiddenHeight" id="ctl00_Content_ctlTimetableMain_HiddenHeight" name="ctl00$Content$ctlTimetableMain$HiddenHeight" type="hidden" value="550"/>
+</div>
+<div id="ctl00_Content_divActionBottom">
+ <div class="cssTtableActionBarTop" id="ctl00_Content_ctlActionBarBottom">
+  <div class="cssTtableActBarActionPnl" id="ctl00_Content_ctlActionBarBottom_0">
+   <input class="cssTtableActBarBtnPrint" id="ctl00_Content_ctlActionBarBottom_Print" name="ctl00$Content$ctlActionBarBottom$Print" title="Show me a printer friendly version of the current view." type="submit" value="Print"/>
+  </div>
+  <div class="cssTtableActBarTitlePnl" id="ctl00_Content_ctlActionBarBottom_1">
+  </div>
+ </div>
+</div>
+<div class="row-fluid page-footer">
+ <div class="span2" id="ctl00_divFooterSpacer">
+ </div>
+ <div class="span10" id="ctl00_divFooter">
+  <footer>
+   <p class="pull-left">
+    Powered by TechnologyOne
+   </p>
+   <div class="footer-links pull-right">
+    <a accesskey="V" href="http://oasis.curtin.edu.au/help/estudent/terms_of_use.cfm" id="ctl00_hlCustomFooterLink1" style="display:none" title="Access Key: V">
+     Terms of Use
+    </a>
+    CRICOS Provider Code 00301J
+   </div>
+  </footer>
+ </div>
+</div>
+<script type="text/javascript">
+ //<![CDATA[
+Sys.Application.initialize();
+//]]>
+</script>
+<script src="js/bootstrap-collapse.js" type="text/javascript">
+</script>
+<script src="js/bootstrap-dropdown.js" type="text/javascript">
+</script>
+<script src="js/bootstrap-oneclick.js" type="text/javascript">
+</script>

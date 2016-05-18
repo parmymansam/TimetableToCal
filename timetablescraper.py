@@ -1,8 +1,19 @@
 from bs4 import BeautifulSoup
 import requests
 import getpass
-import time
-import 
+from datetime import date
+
+import httplib2
+import os
+
+from apiclient import discovery
+import oauth2client
+from oauth2client import client
+from oauth2client import tools
+
+SCOPES = 'https://www.googleapis.com/auth/calendar'
+CLIENT_SECRET_FILE = 'client_secret.json'
+APPLICATION_NAME = 'Curtin Timetable Add'
 
 class Unit:
     def __init__(self, name, classEvents):
@@ -27,6 +38,34 @@ def makeClassEvent(type, when, where):
     end = [when[3], when[4]]
     
     return ClassEvent(type, start, end, day, where)
+
+def get_credentials():
+    """Gets valid user credentials from storage.
+
+    If nothing has been stored, or if the stored credentials are invalid,
+    the OAuth2 flow is completed to obtain the new credentials.
+
+    Returns:
+        Credentials, the obtained credential.
+    """
+    home_dir = os.path.expanduser('~')
+    credential_dir = os.path.join(home_dir, '.credentials')
+    if not os.path.exists(credential_dir):
+        os.makedirs(credential_dir)
+    credential_path = os.path.join(credential_dir,
+                                   'curtin_calendar_create.json')
+
+    store = oauth2client.file.Storage(credential_path)
+    credentials = store.get()
+    if not credentials or credentials.invalid:
+        flow = client.flow_from_clientsecrets(CLIENT_SECRET_FILE, SCOPES)
+        flow.user_agent = APPLICATION_NAME
+        if flags:
+            credentials = tools.run_flow(flow, store, flags)
+        else: # Needed only for compatibility with Python 2.6
+            credentials = tools.run(flow, store)
+        print('Storing credentials to ' + credential_path)
+    return credentials
     
 class Scraper:
     def __init__(self, username, password):
@@ -71,7 +110,32 @@ class Scraper:
             newUnit = Unit(unitName[i], events)
             self.units.append(newUnit)
             i = i + 1
-def createCalenderEvents(units):
+
+def createEvent(classevent, unitname):
+    for classtype in classevent:
+        event = {
+            'summary' : unitname + ' - ' +classtype.type,
+            'location' : classtype.where,
+            'start' : {
+                'dateTime' : classtype.start,
+                'timeZone' : 'Australia/Perth'
+            },
+            'end' : {
+                'dateTime' : classtype.end,
+                'timeZone' : 'Australia/Perth'
+            },
+                'recurrence' : [
+                    'RRULE:FREQ=DAILY;COUNT=12'
+            ],
+            'reminders': {
+                'useDefault': False,
+                'overrides': [
+                    {'method' : 'popup', 'minutes': 10}
+                ]
+            }
+        }
+        
+        event = service.events().insert(calendarId='Curtin University', body=event).execute()
         
 if __name__ == '__main__':
     

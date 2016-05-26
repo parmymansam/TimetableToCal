@@ -2,9 +2,9 @@
 from bs4 import BeautifulSoup
 import requests
 import getpass
-from datetime import date
+from datetime import datetime
 
-#import httplib2
+import httplib2
 import os
 
 from apiclient import discovery
@@ -12,9 +12,32 @@ import oauth2client
 from oauth2client import client
 from oauth2client import tools
 
+try:
+    import argparse
+    flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
+except ImportError:
+    flags = None
+
+
 SCOPES = 'https://www.googleapis.com/auth/calendar'
 CLIENT_SECRET_FILE = 'client_secret.json'
 APPLICATION_NAME = 'Curtin Timetable Add'
+
+semDates = {
+    '2016Sem1': '2/29/16',
+    '2016Sem2': '8/1/16',
+    '2017Sem1': '2/27/16',
+    '2017Sem2': '8/31/16',
+    '2018Sem1': '2/26/16',
+    '2018Sem2': '8/30/16'
+}
+days = {
+    'Monday': 0,
+    'Tuesday': 1,
+    'Wednesday':2,
+    'Thursday':3,
+    'Friday':4
+}
 
 class Unit:
     def __init__(self, name, classEvents):
@@ -22,21 +45,30 @@ class Unit:
         self.classEvents = classEvents
     
 class ClassEvent:
-    def __init__(self, type, start, end, day, place):
+    def __init__(self, type, start, end, day, where):
         self.type = type
         self.start = start
         self.end = end
         self.day = day
-        self.place = place
+        self.where = where
 
 def formatWhen(inString):
-    return inString.replace("-", " ").split()
+    result = inString.replace("-", " ").split()
+    
+    result[1] = datetime.strptime(result[1]+result[2],"%H:%M%p")
+    result[3] = datetime.strptime(result[3]+result[4],"%H:%M%p")
+        
+    return result
 
     
-def makeClassEvent(type, when, where):
-    day = when[0]
-    start = [when[1], when[2]]
-    end = [when[3], when[4]]
+def makeClassEvent(type, when, where, week):
+    day = days[when[0]]
+    
+    
+    start_string = str(week[2]) + "-" + str(week[1]) + "-" + str(week[0] + day) + " " + str(when[1].time)
+    start = datetime.strptime(start_string, "%Y-%m-
+    
+    end = str(week[2]) + "-" + str(week[1]) + "-" + str(week[0] + day) + " " + str(when[3].time)
     
     return ClassEvent(type, start, end, day, where)
 
@@ -69,7 +101,7 @@ def get_credentials():
     return credentials
     
 class Scraper:
-    def __init__(self, username, password):
+    def __init__(self, username, password, week):
         self.units = []
         
         payload = {
@@ -87,7 +119,6 @@ class Scraper:
             soup = BeautifulSoup(data, "html.parser")
         
         unitName = []
-        print("Mark 2")
         for unit in soup.select('.cssTtableSspNavMasterSpkInfo2'):
             unitName.append(''.join(unit.findAll(text=True)))
 
@@ -105,40 +136,40 @@ class Scraper:
                 
                 when = formatWhen(time)
                 
-                event = makeClassEvent(type, when, where)
+                event = makeClassEvent(type, when, where, week)
                 events.append(event)
             
             newUnit = Unit(unitName[i], events)
             self.units.append(newUnit)
             i = i + 1
 
-def createEvent(classevent, unitname, calID):
-    for classtype in classevent:
-        event = {
-            'summary' : unitname + ' - ' +classtype.type,
-            'location' : classtype.where,
-            'start' : {
-                'dateTime' : classtype.start,
-                'timeZone' : 'Australia/Perth'
-            },
-            'end' : {
-                'dateTime' : classtype.end,
-                'timeZone' : 'Australia/Perth'
-            },
-                'recurrence' : [
-                    'RRULE:FREQ=DAILY;COUNT=12'
-            ],
-            'reminders': {
-                'useDefault': False,
-                'overrides': [
-                    {'method' : 'popup', 'minutes': 10}
-                ]
-            }
+def createEvent(classevent, unitname, calID, service):
+    
+    event = {
+        'summary' : unitname + ' - ' +classevent.type,
+        'location' : classevent.where,
+        'start' : {
+            'dateTime' : classevent.start,
+            'timeZone' : 'Australia/Perth'
+        },
+        'end' : {
+            'dateTime' : classevent.end,
+            'timeZone' : 'Australia/Perth'
+        },
+            'recurrence' : [
+                'RRULE:FREQ=DAILY;COUNT=12'
+        ],
+        'reminders': {
+            'useDefault': False,
+            'overrides': [
+                {'method' : 'popup', 'minutes': 10}
+            ]
         }
-        
-        event = service.events().insert(calendarId=calID, body=event).execute()
-        
-def createCalendar(creds):
+    }
+    
+    event = service.events().insert(calendarId=calID, body=event).execute()
+            
+def createCalendar(creds, service):
     calendar = {
     'summary': 'Curtin Class Timetable',
     'timeZone': 'Australia/Perth'
@@ -148,18 +179,29 @@ def createCalendar(creds):
     
     return created_calendar['id']
     
-def addToCalendar():
-    creds = get_credentials()
-    cal_id = createCalender(creds)
+def addToCalendar(cal_id, units, service):
     
     for unit in units:
-        for event in unit:
-            createEvent(event, unit.unitname, cal_id)  
+        for event in unit.classEvents:
+            createEvent(event, unit.name, cal_id, service)  
         
 if __name__ == '__main__':
     
     username = input("Student ID: ")
     password = getpass.getpass()
+    day = input("Day: ")
+    month = input("Month: ")
+    year = input("Year: ")
+    week = [day, month, year]
     
-    scraper = Scraper(username, password)
+    scraper = Scraper(username, password, week)
+    
+    print (scraper.units[0].classEvents[0].start)
+    
+    #creds = get_credentials()
+    #http = creds.authorize(httplib2.Http())
+    #service = discovery.build('calendar', 'v3', http=http)
+    
+    #calID = createCalendar(creds, service)
+    #addToCalendar(calID, scraper.units, service)
     

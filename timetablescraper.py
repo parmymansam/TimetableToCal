@@ -66,10 +66,11 @@ def makeClassEvent(type, when, where, week):
     
     
     start_string = str(week[2]) + "-" + str(week[1]) + "-" + str(week[0] + day) + " " + str(when[1].time)
-    start = datetime.strptime(start_string, "%Y-%m-
+    start = datetime.strptime(start_string, "%Y-%m-%d %H:%M")
     
-    end = str(week[2]) + "-" + str(week[1]) + "-" + str(week[0] + day) + " " + str(when[3].time)
-    
+    end_string = str(week[2]) + "-" + str(week[1]) + "-" + str(week[0] + day) + " " + str(when[3].time)
+    end = datetime.strptime(end_string, "%Y-%m-%d %H:%M")
+
     return ClassEvent(type, start, end, day, where)
 
 def get_credentials():

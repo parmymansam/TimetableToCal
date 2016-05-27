@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import requests
 import getpass
 from datetime import datetime
+from datetime import timedelta
 
 import httplib2
 import os
@@ -31,7 +32,7 @@ semDates = {
     '2018Sem1': '2/26/16',
     '2018Sem2': '8/30/16'
 }
-days = {
+Days = {
     'Monday': 0,
     'Tuesday': 1,
     'Wednesday':2,
@@ -61,17 +62,20 @@ def formatWhen(inString):
     return result
 
     
-def makeClassEvent(type, when, where, week):
-    day = days[when[0]]
-    
-    
-    start_string = str(week[2]) + "-" + str(week[1]) + "-" + str(week[0] + day) + " " + str(when[1].time)
-    start = datetime.strptime(start_string, "%Y-%m-%d %H:%M")
-    
-    end_string = str(week[2]) + "-" + str(week[1]) + "-" + str(week[0] + day) + " " + str(when[3].time)
-    end = datetime.strptime(end_string, "%Y-%m-%d %H:%M")
+def makeClassEvent(typeE, when, where, week):
+    day = timedelta(days=Days[when[0]])
 
-    return ClassEvent(type, start, end, day, where)
+    #start_string = str(week[2]) + "-" + str(week[1]) + "-" + str(week[0] + day) + " " + str(when[1].hour) + ":" + str(when[1].minute)
+    startweek = datetime(week[2], week[1], week[0], when[1].hour, when[1].minute, 0)
+    #start = datetime.strptime(start_string, "%Y-%m-%d %H:%M")
+    start = startweek + day
+    
+    #end_string = str(week[2]) + "-" + str(week[1]) + "-" + str(week[0] + day) + " " + str(when[3].hour) + ":" + str(when[3].minute)
+    endweek = datetime(week[2], week[1], week[0], when[3].hour, when[3].minute, 0)
+    #end = datetime.strptime(end_string, "%Y-%m-%d %H:%M")
+    end = endweek + day
+
+    return ClassEvent(typeE, start, end, day, where)
 
 def get_credentials():
     """Gets valid user credentials from storage.
@@ -145,20 +149,20 @@ class Scraper:
             i = i + 1
 
 def createEvent(classevent, unitname, calID, service):
-    
+    print("1")
     event = {
         'summary' : unitname + ' - ' +classevent.type,
         'location' : classevent.where,
         'start' : {
-            'dateTime' : classevent.start,
+            'dateTime' : classevent.start.strftime("%Y-%m-%dT%H:%M:00+08:00"),
             'timeZone' : 'Australia/Perth'
         },
         'end' : {
-            'dateTime' : classevent.end,
+            'dateTime' : classevent.end.strftime("%Y-%m-%dT%H:%M:00+08:00"),
             'timeZone' : 'Australia/Perth'
         },
             'recurrence' : [
-                'RRULE:FREQ=DAILY;COUNT=12'
+                'RRULE:FREQ=WEEKLY;COUNT=12'
         ],
         'reminders': {
             'useDefault': False,
@@ -167,8 +171,9 @@ def createEvent(classevent, unitname, calID, service):
             ]
         }
     }
-    
+    print("2")
     event = service.events().insert(calendarId=calID, body=event).execute()
+    print ('Event created: %s' % (event.get('htmlLink')))
             
 def createCalendar(creds, service):
     calendar = {
@@ -177,32 +182,33 @@ def createCalendar(creds, service):
     }
 
     created_calendar = service.calendars().insert(body=calendar).execute()
-    
+    print("Calender made")
     return created_calendar['id']
     
 def addToCalendar(cal_id, units, service):
     
     for unit in units:
+        print("Adding events for " + unit.name)
+        
         for event in unit.classEvents:
+            print("Adding " + event.type)
             createEvent(event, unit.name, cal_id, service)  
         
 if __name__ == '__main__':
     
-    username = input("Student ID: ")
-    password = getpass.getpass()
-    day = input("Day: ")
-    month = input("Month: ")
-    year = input("Year: ")
+    #username = input("Student ID: ")
+    #password = getpass.getpass()
+    day = int(input("Day: "))
+    month = int(input("Month: "))
+    year = int(input("Year: "))
     week = [day, month, year]
     
-    scraper = Scraper(username, password, week)
+    scraper = Scraper('17737683', 'Galaexy64523', week)
     
-    print (scraper.units[0].classEvents[0].start)
+    creds = get_credentials()
+    http = creds.authorize(httplib2.Http())
+    service = discovery.build('calendar', 'v3', http=http)
     
-    #creds = get_credentials()
-    #http = creds.authorize(httplib2.Http())
-    #service = discovery.build('calendar', 'v3', http=http)
-    
-    #calID = createCalendar(creds, service)
-    #addToCalendar(calID, scraper.units, service)
+    calID = createCalendar(creds, service)
+    addToCalendar(calID, scraper.units, service)
     

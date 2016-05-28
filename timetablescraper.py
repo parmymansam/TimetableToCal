@@ -56,8 +56,8 @@ class ClassEvent:
 def formatWhen(inString):
     result = inString.replace("-", " ").split()
     
-    result[1] = datetime.strptime(result[1]+result[2],"%H:%M%p")
-    result[3] = datetime.strptime(result[3]+result[4],"%H:%M%p")
+    result[1] = datetime.strptime(result[1]+result[2],"%I:%M%p")
+    result[3] = datetime.strptime(result[3]+result[4],"%I:%M%p")
         
     return result
 
@@ -67,12 +67,12 @@ def makeClassEvent(typeE, when, where, week):
 
     #start_string = str(week[2]) + "-" + str(week[1]) + "-" + str(week[0] + day) + " " + str(when[1].hour) + ":" + str(when[1].minute)
     startweek = datetime(week[2], week[1], week[0], when[1].hour, when[1].minute, 0)
-    #start = datetime.strptime(start_string, "%Y-%m-%d %H:%M")
+    #startweek = datetime.strptime(start_string, "%Y-%m-%d %H:%M")
     start = startweek + day
     
     #end_string = str(week[2]) + "-" + str(week[1]) + "-" + str(week[0] + day) + " " + str(when[3].hour) + ":" + str(when[3].minute)
     endweek = datetime(week[2], week[1], week[0], when[3].hour, when[3].minute, 0)
-    #end = datetime.strptime(end_string, "%Y-%m-%d %H:%M")
+    #endweek = datetime.strptime(end_string, "%Y-%m-%d %H:%M")
     end = endweek + day
 
     return ClassEvent(typeE, start, end, day, where)
@@ -149,7 +149,6 @@ class Scraper:
             i = i + 1
 
 def createEvent(classevent, unitname, calID, service):
-    print("1")
     event = {
         'summary' : unitname + ' - ' +classevent.type,
         'location' : classevent.where,
@@ -171,9 +170,8 @@ def createEvent(classevent, unitname, calID, service):
             ]
         }
     }
-    print("2")
+
     event = service.events().insert(calendarId=calID, body=event).execute()
-    print ('Event created: %s' % (event.get('htmlLink')))
             
 def createCalendar(creds, service):
     calendar = {
@@ -188,7 +186,7 @@ def createCalendar(creds, service):
 def addToCalendar(cal_id, units, service):
     
     for unit in units:
-        print("Adding events for " + unit.name)
+        print("\n\nAdding events for " + unit.name)
         
         for event in unit.classEvents:
             print("Adding " + event.type)
@@ -196,14 +194,14 @@ def addToCalendar(cal_id, units, service):
         
 if __name__ == '__main__':
     
-    #username = input("Student ID: ")
-    #password = getpass.getpass()
+    username = input("Student ID: ")
+    password = getpass.getpass()
     day = int(input("Day: "))
     month = int(input("Month: "))
     year = int(input("Year: "))
     week = [day, month, year]
     
-    scraper = Scraper('17737683', 'Galaexy64523', week)
+    scraper = Scraper(username, password, week)
     
     creds = get_credentials()
     http = creds.authorize(httplib2.Http())

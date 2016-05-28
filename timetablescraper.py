@@ -24,14 +24,15 @@ SCOPES = 'https://www.googleapis.com/auth/calendar'
 CLIENT_SECRET_FILE = 'client_secret.json'
 APPLICATION_NAME = 'Curtin Timetable Add'
 
-semDates = {
-    '2016Sem1': '2/29/16',
-    '2016Sem2': '8/1/16',
-    '2017Sem1': '2/27/16',
-    '2017Sem2': '8/31/16',
-    '2018Sem1': '2/26/16',
-    '2018Sem2': '8/30/16'
-}
+semDates = [
+    datetime(2016,2,29,0,0,0),
+    datetime(2016,8,1,0,0,0),
+    datetime(2017,2,27,0,0,0),
+    datetime(2017,7,31,0,0,0),
+    datetime(2018,2,26,0,0,0),
+    datetime(2018,7,30,0,0,0)
+]
+
 Days = {
     'Monday': 0,
     'Tuesday': 1,
@@ -127,8 +128,8 @@ class GoogleCalender:
         self.creds = self.get_credentials()
         self.http = self.creds.authorize(httplib2.Http())
         self.service = discovery.build('calendar', 'v3', http=self.http)
-
-        if not self.calendar_exist():
+        print(self.calendar_exist())
+        if self.calendar_exist() == False:
             self.cal_id = self.createCalendar()
 
     def get_credentials(self):
@@ -176,9 +177,20 @@ class GoogleCalender:
 
         return exists
 
+    def event_exist(self, unitname, new_event):
+        page_token = None
+
+        while True:
+          events = service.events().list(calendarId=TIMETABLENAME, pageToken=page_token).execute()
+          for event in events['items']:
+            if event['summary'] = unitname + ' - ' + new_event.type
+          page_token = events.get('nextPageToken')
+          if not page_token:
+            break
+
     def createCalendar(self):
         calendar = {
-        'summary': 'Curtin Class Timetable',
+        'summary': TIMETABLENAME,
         'timeZone': 'Australia/Perth'
         }
 
@@ -208,7 +220,7 @@ class GoogleCalender:
                 'timeZone' : 'Australia/Perth'
             },
                 'recurrence' : [
-                    'RRULE:FREQ=WEEKLY;COUNT=12'
+                    'RRULE:FREQ=WEEKLY;COUNT=14'
             ],
             'reminders': {
                 'useDefault': False,
@@ -224,10 +236,11 @@ if __name__ == '__main__':
     
     username = input("Student ID: ")
     #password = getpass.getpass()
-    day = int(input("Day: "))
-    month = int(input("Month: "))
-    year = int(input("Year: "))
-    week = [day, month, year]
+
+    #now = datetime.now();
+
+    #for start in semDates();
+    week = [29, 2, 2016]
     
     scraper = Scraper(username, 'Galaexy64523', week)
 

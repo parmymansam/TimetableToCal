@@ -70,20 +70,11 @@ def makeClassEvent(typeE, when, where, week):
    
     startweek = datetime(week.year, week.month, week.day, when[1].hour, when[1].minute, 0)
     start = startweek + day
-<<<<<<< HEAD
     
     endweek = datetime(week.year, week.month, week.day, when[3].hour, when[3].minute, 0)
     end = endweek + day
 
     return ClassEvent(typeE, start, end, day, where)
-=======
-    
-    endweek = datetime(week.year, week.month, week.day, when[3].hour, when[3].minute, 0)
-    end = endweek + day
-
-    return ClassEvent(typeE, start, end, day, where)
-    
->>>>>>> beta
     
 class Scraper:
     def __init__(self, username, password, week):

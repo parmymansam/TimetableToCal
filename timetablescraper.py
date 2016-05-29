@@ -25,12 +25,12 @@ CLIENT_SECRET_FILE = 'client_secret.json'
 APPLICATION_NAME = 'Curtin Timetable Add'
 
 semDates = [
-    datetime(2016,2,29,0,0,0),
-    datetime(2016,8,1,0,0,0),
-    datetime(2017,2,27,0,0,0),
-    datetime(2017,7,31,0,0,0),
-    datetime(2018,2,26,0,0,0),
-    datetime(2018,7,30,0,0,0)
+    [datetime(2016,2,29,0,0,0), 5, 8],
+    [datetime(2016,8,1,0,0,0), 5, 9],
+    [datetime(2017,2,27,0,0,0), 7, 8],
+    [datetime(2017,7,31,0,0,0), 5, 9],
+    [datetime(2018,2,26,0,0,0), 6, 9],
+    [datetime(2018,7,30,0,0,0), 5, 9]
 ]
 
 Days = {
@@ -66,15 +66,11 @@ def formatWhen(inString):
     
 def makeClassEvent(typeE, when, where, week):
     day = timedelta(days=Days[when[0]])
-
-    #start_string = str(week[2]) + "-" + str(week[1]) + "-" + str(week[0] + day) + " " + str(when[1].hour) + ":" + str(when[1].minute)
-    startweek = datetime(week[2], week[1], week[0], when[1].hour, when[1].minute, 0)
-    #startweek = datetime.strptime(start_string, "%Y-%m-%d %H:%M")
+   
+    startweek = datetime(week.year, week.month, week.day, when[1].hour, when[1].minute, 0)
     start = startweek + day
     
-    #end_string = str(week[2]) + "-" + str(week[1]) + "-" + str(week[0] + day) + " " + str(when[3].hour) + ":" + str(when[3].minute)
-    endweek = datetime(week[2], week[1], week[0], when[3].hour, when[3].minute, 0)
-    #endweek = datetime.strptime(end_string, "%Y-%m-%d %H:%M")
+    endweek = datetime(week.year, week.month, week.day, when[3].hour, when[3].minute, 0)
     end = endweek + day
 
     return ClassEvent(typeE, start, end, day, where)
@@ -177,17 +173,6 @@ class GoogleCalender:
 
         return exists
 
-    def event_exist(self, unitname, new_event):
-        page_token = None
-
-        while True:
-          events = service.events().list(calendarId=TIMETABLENAME, pageToken=page_token).execute()
-          for event in events['items']:
-            if event['summary'] = unitname + ' - ' + new_event.type
-          page_token = events.get('nextPageToken')
-          if not page_token:
-            break
-
     def createCalendar(self):
         calendar = {
         'summary': TIMETABLENAME,
@@ -198,16 +183,15 @@ class GoogleCalender:
         print("Calender made")
         return created_calendar['id']
 
-    def addToCalendar(self, units):
-    
+    def addToCalendar(self, units, sem_breaks):
         for unit in units:
             print("\n\nAdding events for " + unit.name)
             
             for event in unit.classEvents:
                 print("Adding " + event.type)
-                self.createEvent(event, unit.name)
+                self.createEvent(event, unit.name, sem_breaks)
 
-    def createEvent(self, classevent, unitname):
+    def createEvent(self, classevent, unitname, sem_breaks):
         event = {
             'summary' : unitname + ' - ' +classevent.type,
             'location' : classevent.where,
@@ -221,6 +205,7 @@ class GoogleCalender:
             },
                 'recurrence' : [
                     'RRULE:FREQ=WEEKLY;COUNT=14'
+
             ],
             'reminders': {
                 'useDefault': False,
@@ -231,19 +216,33 @@ class GoogleCalender:
         }
 
         event = self.service.events().insert(calendarId=self.cal_id, body=event).execute()
+        
+        instances = self.service.events().instances(calendarId=self.cal_id, eventId=event['id']).execute()
+        firstbreak = instances['items'][sem_breaks[0] - 1]
+        secondbreak = instances['items'][sem_breaks[1] - 1]
+        
+        firstbreak['status'] = 'cancelled'
+        secondbreak['status'] = 'cancelled'
+
+        updated_instance = self.service.events().update(calendarId=self.cal_id, eventId=firstbreak['id'], body=firstbreak).execute()
+        updated_instance = self.service.events().update(calendarId=self.cal_id, eventId=secondbreak['id'], body=secondbreak).execute()
+
 
 if __name__ == '__main__':
     
     username = input("Student ID: ")
     #password = getpass.getpass()
 
-    #now = datetime.now();
+    now = datetime.now();
 
-    #for start in semDates();
-    week = [29, 2, 2016]
+    for indx, start in enumerate(semDates):
+        if start[0] > now:
+            week = semDates[indx - 1][0]
+            sem_breaks = [semDates[indx - 1][1], semDates[indx - 1][2]]
+            break
     
     scraper = Scraper(username, 'Galaexy64523', week)
 
     calendar = GoogleCalender()
-    calendar.addToCalendar(scraper.units)
+    calendar.addToCalendar(scraper.units, sem_breaks)
     

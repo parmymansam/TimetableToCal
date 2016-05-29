@@ -254,8 +254,6 @@ if __name__ == '__main__':
     scraper = Scraper(username, password, week)
 
     calendar = GoogleCalender()
-<<<<<<< HEAD
     calendar.addToCalendar(scraper.units, sem_breaks)
-=======
-    calendar.addToCalendar(scraper.units, sem_breaks)
->>>>>>> beta
+
+

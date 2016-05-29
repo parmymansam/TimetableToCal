@@ -47,6 +47,7 @@ class Unit:
         self.name = name
         self.classEvents = classEvents
     
+
 class ClassEvent:
     def __init__(self, type, start, end, day, where):
         self.type = type
@@ -74,6 +75,7 @@ def makeClassEvent(typeE, when, where, week):
     end = endweek + day
 
     return ClassEvent(typeE, start, end, day, where)
+    
     
 class Scraper:
     def __init__(self, username, password, week):

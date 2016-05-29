@@ -5,12 +5,15 @@ Uses the Google Calander API to add the events to a calander.
   - BeautifulSoup
   - Google Calendar API
   - Getpass
+  - Requests
+
+### Limitations:
+  Limited to classes that are once a week and to semesters, not trimesters.
 
 ##To use:
   1.  Enter Student ID and password at prompt
-  2.  When prompted again, enter the <b>date of the first monday of semester</b> as DD/MM/YYYY
-  3.  Allow access to google calander to create the events
-  4.  Program will create a calander called Curtin Units and add the events to it
+  2.  Allow access to google calander to create the events
+  3.  Program will create a calander called Curtin Units and add the events to it
   
 ##To-Do:
   - Add color coding to events

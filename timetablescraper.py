@@ -47,6 +47,7 @@ class Unit:
         self.name = name
         self.classEvents = classEvents
     
+
 class ClassEvent:
     def __init__(self, type, start, end, day, where):
         self.type = type
@@ -69,11 +70,20 @@ def makeClassEvent(typeE, when, where, week):
    
     startweek = datetime(week.year, week.month, week.day, when[1].hour, when[1].minute, 0)
     start = startweek + day
+<<<<<<< HEAD
     
     endweek = datetime(week.year, week.month, week.day, when[3].hour, when[3].minute, 0)
     end = endweek + day
 
     return ClassEvent(typeE, start, end, day, where)
+=======
+    
+    endweek = datetime(week.year, week.month, week.day, when[3].hour, when[3].minute, 0)
+    end = endweek + day
+
+    return ClassEvent(typeE, start, end, day, where)
+    
+>>>>>>> beta
     
 class Scraper:
     def __init__(self, username, password, week):
@@ -244,4 +254,8 @@ if __name__ == '__main__':
     scraper = Scraper(username, password, week)
 
     calendar = GoogleCalender()
+<<<<<<< HEAD
     calendar.addToCalendar(scraper.units, sem_breaks)
+=======
+    calendar.addToCalendar(scraper.units, sem_breaks)
+>>>>>>> beta

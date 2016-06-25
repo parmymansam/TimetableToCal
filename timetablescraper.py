@@ -102,11 +102,19 @@ class Scraper:
         for unit in soup.select('.cssTtableSspNavDetailsContainerPanel'):
             events = []
             for classevent in unit.select('.cssTtableNavActvTop'):
+
                 raw_type = classevent.select('.cssTtableSspNavActvNm')
+                type = ''.join(raw_type[0].findAll(text=True)).strip()
+
+                # Check if the unit actual has classes "... or in the future"
+                if "no classes that are on today" in classevent.get_text():
+                    typePlural = type + 's'
+                    print "No", typePlural, "for", unitName[i].strip()
+                    continue
+
                 raw_time = classevent.select('.cssTtableNavMainWhen .cssTtableNavMainContent')
                 raw_where = classevent.select('.cssTtableNavMainWhere .cssTtableNavMainContent')
 
-                type = ''.join(raw_type[0].findAll(text=True)).strip()
                 time = ''.join(raw_time[0].findAll(text=True)).strip()
                 where = ''.join(raw_where[0].findAll(text=True)).strip()
                 
@@ -115,8 +123,14 @@ class Scraper:
                 event = makeClassEvent(type, when, where, week)
                 events.append(event)
             
-            newUnit = Unit(unitName[i], events)
-            self.units.append(newUnit)
+            # don't try to create empty units
+            if len(events) == 0:
+                print unitName[i].strip(), "has no events. Skipping.\n"
+            else:
+                print "\n"
+                newUnit = Unit(unitName[i], events)
+                self.units.append(newUnit)
+
             i = i + 1
     
   
@@ -244,7 +258,10 @@ if __name__ == '__main__':
     
     scraper = Scraper(username, password, week)
 
-    calendar = GoogleCalender()
-    calendar.addToCalendar(scraper.units, sem_breaks)
+    if len(scraper.units) == 0:
+        print "Nothing to add to Google Calendar.\n"
+    else:
+        calendar = GoogleCalender()
+        calendar.addToCalendar(scraper.units, sem_breaks)
 
 
